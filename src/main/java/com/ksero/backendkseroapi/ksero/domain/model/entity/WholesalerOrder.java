@@ -23,10 +23,6 @@ public class WholesalerOrder {
 
     @NotNull
     @NotBlank
-    private String name;
-
-    @NotNull
-    @NotBlank
     @Positive
     private Long quantity;
 
