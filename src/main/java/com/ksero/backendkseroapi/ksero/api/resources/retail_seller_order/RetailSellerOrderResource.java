@@ -11,5 +11,7 @@ public class RetailSellerOrderResource {
 
     private Long id;
     private Long quantity;
+    private Long retailSellerId;
+    private Long productId;
 
 }
