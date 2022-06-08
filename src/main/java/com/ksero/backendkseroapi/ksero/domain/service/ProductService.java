@@ -17,4 +17,6 @@ public interface ProductService {
     Product update(Long wholesalerId, Long productId, Product product);
 
     ResponseEntity<?> delete(Long wholesalerId, Long productId);
+
+    Product getById(Long productId);
 }
