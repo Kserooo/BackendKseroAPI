@@ -18,5 +18,4 @@ public interface ProductService {
 
     ResponseEntity<?> delete(Long wholesalerId, Long productId);
 
-    Product getById(Long productId);
 }

@@ -1,4 +1,7 @@
 package com.ksero.backendkseroapi.ksero.domain.persistence;
 
-public interface WholesalerRepository {
+import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface WholesalerRepository extends JpaRepository<Product,Long> {
 }
