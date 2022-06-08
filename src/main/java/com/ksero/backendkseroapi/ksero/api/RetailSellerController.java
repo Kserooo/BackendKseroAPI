@@ -16,9 +16,9 @@ public class RetailSellerController {
     private final RetailSellerService retailSellerService;
     private final RetailSellerMapper mapper;
 
-    public RetailSellerController(RetailSellerService retailSellerService, RetailSellerMapper _mapper){
+    public RetailSellerController(RetailSellerService retailSellerService, RetailSellerMapper mapper){
         this.retailSellerService = retailSellerService;
-        this.mapper = _mapper;
+        this.mapper = mapper;
     }
 
     @GetMapping("{retailSellerId}")
