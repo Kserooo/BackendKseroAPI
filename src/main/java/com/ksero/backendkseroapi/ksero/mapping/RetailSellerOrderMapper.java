@@ -4,7 +4,7 @@ import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSellerOrder;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.CreateRetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.RetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.UpdateRetailSellerOrderResource;
-import com.ksero.backendkseroapi.shared.mapping.EnhanceModelMapper;
+import com.ksero.backendkseroapi.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -15,7 +15,7 @@ import java.util.List;
 public class RetailSellerOrderMapper {
 
     @Autowired
-    EnhanceModelMapper mapper;
+    EnhancedModelMapper mapper;
 
     public RetailSellerOrderResource toResource(RetailSellerOrder model){
         return mapper.map(model, RetailSellerOrderResource.class);

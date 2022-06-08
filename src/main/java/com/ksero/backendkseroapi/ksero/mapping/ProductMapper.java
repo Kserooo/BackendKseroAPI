@@ -4,7 +4,7 @@ import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.UpdateProductResource;
-import com.ksero.backendkseroapi.shared.mapping.EnhanceModelMapper;
+import com.ksero.backendkseroapi.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -15,7 +15,7 @@ import java.util.List;
 
     public class ProductMapper implements Serializable {
     @Autowired
-    EnhanceModelMapper mapper;
+    EnhancedModelMapper mapper;
 
     public ProductResource toResource(Product model){return mapper.map(model, ProductResource.class);}
 

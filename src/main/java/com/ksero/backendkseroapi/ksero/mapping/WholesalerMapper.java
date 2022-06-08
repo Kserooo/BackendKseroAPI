@@ -4,7 +4,7 @@ import com.ksero.backendkseroapi.ksero.domain.model.entity.Wholesaler;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.CreateWholesalerResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.UpdateWholesalerResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.WholesalerResource;
-import com.ksero.backendkseroapi.shared.mapping.EnhanceModelMapper;
+import com.ksero.backendkseroapi.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class WholesalerMapper implements Serializable {
     @Autowired
-    EnhanceModelMapper mapper;
+    EnhancedModelMapper mapper;
 
     public WholesalerResource toResource(Wholesaler model){
         return mapper.map(model, WholesalerResource.class);
