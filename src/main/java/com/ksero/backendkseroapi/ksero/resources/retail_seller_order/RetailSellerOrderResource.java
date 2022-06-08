@@ -1,4 +1,4 @@
-package com.ksero.backendkseroapi.ksero.api.resources.wholesaler_order;
+package com.ksero.backendkseroapi.ksero.resources.retail_seller_order;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class WholesalerOrderResource {
+public class RetailSellerOrderResource {
 
     private Long id;
     private Long quantity;

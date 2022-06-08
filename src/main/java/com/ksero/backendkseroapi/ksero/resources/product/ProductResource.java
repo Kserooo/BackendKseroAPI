@@ -1,4 +1,4 @@
-package com.ksero.backendkseroapi.ksero.api.resources.product;
+package com.ksero.backendkseroapi.ksero.resources.product;
 
 public class ProductResource {
     private Long id;

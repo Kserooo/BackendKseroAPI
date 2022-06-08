@@ -1,4 +1,4 @@
-package com.ksero.backendkseroapi.ksero.api.resources.wholesaler_order;
+package com.ksero.backendkseroapi.ksero.resources.wholesaler_order;
 
 import lombok.*;
 

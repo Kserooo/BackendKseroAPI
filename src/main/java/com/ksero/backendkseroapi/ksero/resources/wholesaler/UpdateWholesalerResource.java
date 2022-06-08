@@ -1,8 +1,9 @@
-package com.ksero.backendkseroapi.ksero.api.resources.wholesaler;
+package com.ksero.backendkseroapi.ksero.resources.wholesaler;
 
 import java.util.Date;
 
-public class CreateWholesalerResource {
+public class UpdateWholesalerResource {
+    private Long id;
 
     private String firstName;
 

@@ -1,4 +1,4 @@
-package com.ksero.backendkseroapi.ksero.api.resources.product;
+package com.ksero.backendkseroapi.ksero.resources.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ksero.backendkseroapi.ksero.domain.model.entity.Wholesaler;

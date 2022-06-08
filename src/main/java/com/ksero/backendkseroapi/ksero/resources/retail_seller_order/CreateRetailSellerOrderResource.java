@@ -1,4 +1,4 @@
-package com.ksero.backendkseroapi.ksero.api.resources.retail_seller_order;
+package com.ksero.backendkseroapi.ksero.resources.retail_seller_order;
 
 import lombok.*;
 
@@ -11,9 +11,7 @@ import javax.validation.constraints.Positive;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateRetailSellerOrderResource {
-
-    private Long id;
+public class CreateRetailSellerOrderResource {
 
     @NotNull
     @NotBlank

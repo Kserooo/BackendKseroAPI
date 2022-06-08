@@ -1,8 +1,15 @@
-package com.ksero.backendkseroapi.ksero.api.resources.wholesaler;
+package com.ksero.backendkseroapi.ksero.resources.retail_seller;
+
+import lombok.*;
 
 import java.util.Date;
 
-public class WholesalerResource {
+@Setter
+@Getter
+@With
+@NoArgsConstructor
+@AllArgsConstructor
+public class RetailSellerResource {
     private Long id;
     private String firstName;
     private String lastName;
