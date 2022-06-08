@@ -8,6 +8,8 @@ import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.UpdateRetai
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("api/v1/retailSellerOrder")
 public class RetailSellerOrderController {
 
     private final RetailSellerOrderService retailSellerOrderService;

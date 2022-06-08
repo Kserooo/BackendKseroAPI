@@ -8,6 +8,8 @@ import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.WholesalerOrde
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("api/v1/wholesalerOrder")
 public class WholesalerOrderController {
 
     private final WholesalerOrderService wholesalerOrderService;
