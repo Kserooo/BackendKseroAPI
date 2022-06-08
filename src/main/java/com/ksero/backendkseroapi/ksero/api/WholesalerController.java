@@ -17,9 +17,9 @@ public class WholesalerController {
     private final WholesalerService wholesalerService;
     private final WholesalerMapper mapper;
 
-    public WholesalerController(WholesalerService _wholesalerService, WholesalerMapper _mapper){
-        this.wholesalerService = _wholesalerService;
-        this.mapper = _mapper;
+    public WholesalerController(WholesalerService wholesalerService, WholesalerMapper mapper){
+        this.wholesalerService = wholesalerService;
+        this.mapper = mapper;
     }
 
     @GetMapping("{wholesalerId}")
