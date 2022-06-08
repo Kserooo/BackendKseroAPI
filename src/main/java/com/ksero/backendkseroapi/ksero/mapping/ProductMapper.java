@@ -1,4 +1,33 @@
 package com.ksero.backendkseroapi.ksero.mapping;
 
-public class ProductMapper {
+import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
+import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
+import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
+import com.ksero.backendkseroapi.ksero.resources.product.UpdateProductResource;
+import com.ksero.backendkseroapi.shared.mapping.EnhanceModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+
+import java.io.Serializable;
+import java.util.List;
+
+    public class ProductMapper implements Serializable {
+    @Autowired
+    EnhanceModelMapper mapper;
+
+    public ProductResource toResource(Product model){return mapper.map(model, ProductResource.class);}
+
+    public Product toModel(CreateProductResource resource){
+        return mapper.map(resource, Product.class);
+    }
+
+    public Product toModel(UpdateProductResource resource){
+        return mapper.map(resource, Product.class);
+    }
+
+    public Page<ProductResource> modelListPage(List<Product> modelList, Pageable pageable){
+        return new PageImpl<>(mapper.mapList(modelList, ProductResource.class), pageable, modelList.size());
+    }
 }
