@@ -26,12 +26,12 @@ public class RetailSellerOrder {
     @Positive
     private Long quantity;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "retail_seller_id",nullable = false)
     @JsonIgnore
     private RetailSeller retailSeller;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     @JsonIgnore
     private Product product;
