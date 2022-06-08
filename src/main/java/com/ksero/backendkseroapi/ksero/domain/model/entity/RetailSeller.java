@@ -1,5 +1,7 @@
 package com.ksero.backendkseroapi.ksero.domain.model.entity;
 
+import com.ksero.backendkseroapi.shared.domain.model.AuditModel;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
-public class RetailSeller {
+public class RetailSeller extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

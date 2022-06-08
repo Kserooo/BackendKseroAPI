@@ -1,6 +1,7 @@
 package com.ksero.backendkseroapi.ksero.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ksero.backendkseroapi.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ import javax.validation.constraints.Positive;
 @With
 @Entity
 @Table(name = "wholesaler_order")
-public class WholesalerOrder {
+public class WholesalerOrder extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
