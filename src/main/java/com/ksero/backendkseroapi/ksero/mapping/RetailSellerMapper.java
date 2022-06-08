@@ -16,19 +16,20 @@ public class RetailSellerMapper {
     @Autowired
     EnhancedModelMapper mapper;
 
-    public RetailSellerResource toResource(RetailSeller model){
+    public RetailSellerResource toResource(RetailSeller model) {
         return mapper.map(model, RetailSellerResource.class);
     }
 
-    public Page<RetailSellerResource> modelListPage(List<RetailSeller> modelList, Pageable pageable){
+    public Page<RetailSellerResource> modelListPage(List<RetailSeller> modelList, Pageable pageable) {
         return new PageImpl<>(mapper.mapList(modelList, RetailSellerResource.class),
                 pageable, modelList.size());
     }
 
-    public RetailSeller toModel(CreateRetailSellerResource resource){
+    public RetailSeller toModel(CreateRetailSellerResource resource) {
         return mapper.map(resource, RetailSeller.class);
     }
 
-    public RetailSeller toModel(UpdateRetailSellerResource resource){
+    public RetailSeller toModel(UpdateRetailSellerResource resource) {
         return mapper.map(resource, RetailSeller.class);
+    }
 }

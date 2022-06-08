@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/retailSellerOrder")
+@RequestMapping("api/v1/retail-seller-orders")
 public class RetailSellerOrderController {
 
     private final RetailSellerOrderService retailSellerOrderService;
