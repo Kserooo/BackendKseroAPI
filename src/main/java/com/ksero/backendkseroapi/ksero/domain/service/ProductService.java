@@ -1,16 +1,16 @@
 package com.ksero.backendkseroapi.ksero.domain.service;
 
 import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface ProductService {
-    List<Product> getAllByWholesalerId(Long wholesalerId);
 
-    Page<Product> getAllByWholesalerId(Long wholesalerId, Pageable pageable);
+
+    List<Product> getAll();
+
+    Product getById(Long productId);
 
     Product create(Long wholesalerId, Product product);
 
