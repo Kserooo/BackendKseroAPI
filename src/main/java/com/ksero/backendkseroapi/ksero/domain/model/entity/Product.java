@@ -19,16 +19,20 @@ public class Product extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     @NotBlank
     private String name;
+
     @NotNull
     @NotBlank
     private String description;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "wholesaler_id", nullable = false)
     @JsonIgnore
     private Wholesaler wholesaler;
+
     @NotNull
     @NotBlank
     private Number price;
