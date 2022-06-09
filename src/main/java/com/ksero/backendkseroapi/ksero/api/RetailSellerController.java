@@ -27,12 +27,12 @@ public class RetailSellerController {
     }
 
     @PostMapping
-    public RetailSellerResource createRetailSelle(@RequestBody CreateRetailSellerResource resource){
+    public RetailSellerResource createRetailSeller(@RequestBody CreateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{retailSellerId}")
-    public RetailSellerResource updateRetailSelle(@PathVariable Long retailSellerId,
+    public RetailSellerResource updateRetailSeller(@PathVariable Long retailSellerId,
                                                @RequestBody UpdateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.update(retailSellerId, mapper.toModel(resource)));
     }

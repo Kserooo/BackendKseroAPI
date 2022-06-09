@@ -4,8 +4,11 @@ import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
 import com.ksero.backendkseroapi.ksero.domain.service.ProductService;
 import com.ksero.backendkseroapi.ksero.domain.service.WholesalerService;
 import com.ksero.backendkseroapi.ksero.mapping.ProductMapper;
+import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.UpdateProductResource;
+import com.ksero.backendkseroapi.ksero.resources.retail_seller.CreateRetailSellerResource;
+import com.ksero.backendkseroapi.ksero.resources.retail_seller.RetailSellerResource;
 import com.ksero.backendkseroapi.shared.domain.model.AuditModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +26,11 @@ public class ProductController {
     @GetMapping("{productId}")
     public ProductResource getProductById(@PathVariable Long productId){
         return mapper.toResource(productService.getById(productId));
+    }
+
+    @PostMapping
+    public ProductResource createProduct(@RequestBody CreateProductResource resource){
+        return mapper.toResource(productService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{productId}")
