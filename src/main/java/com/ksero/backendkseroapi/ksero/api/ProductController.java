@@ -26,14 +26,14 @@ public class ProductController {
     }
 
     @PutMapping("{productId}")
-    public ProductResource updateProduct(@PathVariable Long wholesalerId, @PathVariable Long productId,
+    public ProductResource updateProduct(@PathVariable Long productId,
                                          @RequestBody UpdateProductResource resource){
-        return mapper.toResource(productService.update(wholesalerId,productId, mapper.toModel(resource)));
+        return mapper.toResource(productService.update(productId, mapper.toModel(resource)));
     }
 
     @DeleteMapping("{productId}")
-    public ResponseEntity<?> deleteProduct(@PathVariable Long wholesalerId, Long productId){
-        return productService.delete(wholesalerId, productId);
+    public ResponseEntity<?> deleteProduct(@PathVariable Long productId){
+        return productService.delete(productId);
     }
 
 }
