@@ -51,7 +51,8 @@ public class WholesalerServiceImpl implements WholesalerService {
             throw new ResourceValidationException(ENTITY, violations);
 
         return wholesalerRepository.findById(id).map(wholesaler ->
-                        wholesalerRepository.save(wholesaler.withFirstName(request.getFirstName()))
+                        wholesalerRepository.save(wholesaler
+                                        .withFirstName(request.getFirstName()))
                                 .withAddress(request.getAddress())
                                 .withLastName(request.getLastName())
                                 .withBirthday(request.getBirthday())

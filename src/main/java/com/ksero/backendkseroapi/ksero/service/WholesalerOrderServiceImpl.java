@@ -55,15 +55,18 @@ public class WholesalerOrderServiceImpl implements WholesalerOrderService {
     }
 
     @Override
-    public WholesalerOrder update(Long wholesalerOrderId, WholesalerOrder wholesalerOrder) {
+    public WholesalerOrder update(Long wholesalerOrderId, WholesalerOrder request) {
 
-        Set<ConstraintViolation<WholesalerOrder>> violations = validator.validate(wholesalerOrder);
+        Set<ConstraintViolation<WholesalerOrder>> violations = validator.validate(request);
 
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        return wholesalerOrderRepository.findById(wholesalerOrderId).map(existingRetailSellerOrder ->
-                        wholesalerOrderRepository.save(existingRetailSellerOrder.withId(wholesalerOrder.getId())))
+        return wholesalerOrderRepository.findById(wholesalerOrderId).map(wholesalerOrder ->
+                        wholesalerOrderRepository.save(wholesalerOrder
+                                .withQuantity(request.getQuantity())
+                                .withRetailSeller(request.getRetailSeller())
+                                .withProduct(request.getProduct())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, wholesalerOrderId));
 
     }

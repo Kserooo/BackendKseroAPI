@@ -43,34 +43,28 @@ public class RetailSellerServiceImpl implements RetailSellerService {
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        // Name Uniqueness validation
-
-        /*Student retailSellerWithName = retailSellerRepository.findByName(retailSeller.getName());
-
-        if (retailSellerWithName != null)
-            throw new ResourceValidationException(ENTITY,
-                    "An retail seller with the same name already exists."); */
-
         return retailSellerRepository.save(retailSeller);
     }
 
     @Override
-    public RetailSeller update(Long id, RetailSeller retailSeller) {
-        Set<ConstraintViolation<RetailSeller>> violations = validator.validate(retailSeller);
+    public RetailSeller update(Long id, RetailSeller request) {
+        Set<ConstraintViolation<RetailSeller>> violations = validator.validate(request);
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        // Name Uniqueness validation
 
-       /* Student studentWithName = studentRepository.findByName(request.getName());
-
-        if (studentWithName != null && !studentWithName.getId().equals(studentId))
-            throw new ResourceValidationException(ENTITY,
-                    "An student with the same name already exists.");*/
-
-        return retailSellerRepository.findById(id).map(existingRetail ->
-                        retailSellerRepository.save(existingRetail.withId(retailSeller.getId())))
+        return retailSellerRepository.findById(id).map(retailSeller ->
+                        retailSellerRepository.save(retailSeller
+                                        .withFirstName(request.getFirstName()))
+                                .withAddress(request.getAddress())
+                                .withLastName(request.getLastName())
+                                .withBirthday(request.getBirthday())
+                                .withPhone(request.getPhone())
+                                .withEmail(request.getEmail())
+                                .withUsername(request.getUsername())
+                                .withPassword(request.getPassword())
+                                .withDescription(request.getDescription()))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
     }
 
