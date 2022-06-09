@@ -23,7 +23,6 @@ public class RetailSellerOrder extends AuditModel {
     private Long id;
 
     @NotNull
-    @Positive
     private Long quantity;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -40,34 +40,26 @@ public class WholesalerServiceImpl implements WholesalerService {
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        // Name Uniqueness validation
-
-        /*Student wholesalerWithName = wholesalerRepository.findByName(wholesaler.getName());
-
-        if (wholesalerWithName != null)
-            throw new ResourceValidationException(ENTITY,
-                    "An retail seller with the same name already exists."); */
-
         return wholesalerRepository.save(wholesaler);
     }
 
     @Override
-    public Wholesaler update(Long id, Wholesaler wholesaler) {
-        Set<ConstraintViolation<Wholesaler>> violations = validator.validate(wholesaler);
+    public Wholesaler update(Long id, Wholesaler request) {
+        Set<ConstraintViolation<Wholesaler>> violations = validator.validate(request);
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        // Name Uniqueness validation
-
-       /* Student studentWithName = studentRepository.findByName(request.getName());
-
-        if (studentWithName != null && !studentWithName.getId().equals(studentId))
-            throw new ResourceValidationException(ENTITY,
-                    "An student with the same name already exists.");*/
-
-        return wholesalerRepository.findById(id).map(existingSkill ->
-                        wholesalerRepository.save(existingSkill.withId(wholesaler.getId())))
+        return wholesalerRepository.findById(id).map(wholesaler ->
+                        wholesalerRepository.save(wholesaler.withFirstName(request.getFirstName()))
+                                .withAddress(request.getAddress())
+                                .withLastName(request.getLastName())
+                                .withBirthday(request.getBirthday())
+                                .withPhone(request.getPhone())
+                                .withEmail(request.getEmail())
+                                .withUsername(request.getUsername())
+                                .withPassword(request.getPassword())
+                                .withDescription(request.getDescription()))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
     }
 

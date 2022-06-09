@@ -63,9 +63,10 @@ public class RetailSellerOrderServiceImpl implements RetailSellerOrderService {
             throw new ResourceValidationException(ENTITY, violations);
 
         return retailSellerOrderRepository.findById(retailSellerOrderId).map(existingRetailSellerOrder ->
-                        retailSellerOrderRepository.save(existingRetailSellerOrder.withId(retailSellerOrder.getId())))
+                        retailSellerOrderRepository.save(existingRetailSellerOrder.withQuantity(retailSellerOrder.getQuantity())
+                                .withRetailSeller(retailSellerOrder.getRetailSeller())
+                                .withProduct(retailSellerOrder.getProduct())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, retailSellerOrderId));
-
     }
 
     @Override
