@@ -1,4 +1,6 @@
 package com.ksero.backendkseroapi.ksero.service;
 
-public class WholesalerServiceImpl {
+import com.ksero.backendkseroapi.ksero.domain.service.WholesalerService;
+
+public class WholesalerServiceImpl implements WholesalerService {
 }

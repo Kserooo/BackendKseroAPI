@@ -1,4 +1,6 @@
 package com.ksero.backendkseroapi.ksero.service;
 
-public class ProductServiceImpl {
+import com.ksero.backendkseroapi.ksero.domain.service.ProductService;
+
+public class ProductServiceImpl implements ProductService {
 }

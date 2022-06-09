@@ -1,4 +1,8 @@
 package com.ksero.backendkseroapi.ksero.service;
 
-public class RetailSellerOrderServiceImpl {
+
+import com.ksero.backendkseroapi.ksero.domain.service.RetailSellerOrderService;
+
+public class RetailSellerOrderServiceImpl implements RetailSellerOrderService {
+
 }

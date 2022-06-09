@@ -14,6 +14,7 @@ import java.util.Date;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
+
 public class AuditModel {
 
     @Temporal(TemporalType.TIMESTAMP)
