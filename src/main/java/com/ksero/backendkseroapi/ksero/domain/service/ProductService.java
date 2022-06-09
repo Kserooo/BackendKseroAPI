@@ -12,10 +12,10 @@ public interface ProductService {
 
     Product getById(Long productId);
 
-    Product create(Long wholesalerId, Product product);
+    Product create(Product product);
 
-    Product update(Long wholesalerId, Long productId, Product product);
+    Product update(Long id, Product product);
 
-    ResponseEntity<?> delete(Long wholesalerId, Long productId);
+    ResponseEntity<?> delete(Long productId);
 
 }
