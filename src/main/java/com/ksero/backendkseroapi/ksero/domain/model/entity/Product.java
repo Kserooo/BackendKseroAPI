@@ -34,6 +34,5 @@ public class Product extends AuditModel {
     private Wholesaler wholesaler;
 
     @NotNull
-    @NotBlank
     private Number price;
 }

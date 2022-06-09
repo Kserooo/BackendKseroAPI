@@ -30,11 +30,9 @@ public class Wholesaler extends AuditModel {
     private String lastName;
 
     @NotNull
-    @NotBlank
     private Date birthday;
 
     @NotNull
-    @NotBlank
     private int phone;
 
     @NotNull
