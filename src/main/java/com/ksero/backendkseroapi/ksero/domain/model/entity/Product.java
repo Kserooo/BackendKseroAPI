@@ -28,7 +28,7 @@ public class Product extends AuditModel {
     @NotBlank
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wholesaler_id", nullable = false)
     @JsonIgnore
     private Wholesaler wholesaler;
