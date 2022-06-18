@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/products")
 public class ProductController {
@@ -24,6 +26,11 @@ public class ProductController {
     @GetMapping
     public Page<ProductResource> getAllProducts(Pageable pageable) {
         return mapper.modelListPage(productService.getAll(), pageable);
+    }
+
+    @GetMapping
+    public List<ProductResource> getAllProducts(){
+        return mapper.toResource(productService.getAll());
     }
     @GetMapping("{productId}")
     public ProductResource getProductById(@PathVariable Long productId){
