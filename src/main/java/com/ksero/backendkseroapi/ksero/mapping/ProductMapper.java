@@ -13,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import java.io.Serializable;
 import java.util.List;
 
-    public class ProductMapper {
+public class ProductMapper {
     @Autowired
     EnhancedModelMapper mapper;
 
