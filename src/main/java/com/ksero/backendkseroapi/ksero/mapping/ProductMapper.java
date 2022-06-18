@@ -19,6 +19,10 @@ import java.util.List;
 
     public ProductResource toResource(Product model){return mapper.map(model, ProductResource.class);}
 
+    public List<ProductResource> toResource(List<Product> model){
+        return mapper.mapList(model, ProductResource.class);
+    }
+
     public Product toModel(CreateProductResource resource){
         return mapper.map(resource, Product.class);
     }
@@ -27,7 +31,4 @@ import java.util.List;
         return mapper.map(resource, Product.class);
     }
 
-    public Page<ProductResource> modelListPage(List<Product> modelList, Pageable pageable){
-        return new PageImpl<>(mapper.mapList(modelList, ProductResource.class), pageable, modelList.size());
-    }
 }

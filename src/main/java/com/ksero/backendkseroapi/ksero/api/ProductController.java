@@ -10,6 +10,8 @@ import com.ksero.backendkseroapi.shared.domain.model.AuditModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/products")
 public class ProductController {
@@ -19,6 +21,11 @@ public class ProductController {
     public ProductController(ProductService productService, ProductMapper mapper){
         this.productService = productService;
         this.mapper = mapper;
+    }
+
+    @GetMapping
+    public List<ProductResource> getAll(){
+        return mapper.toResource(productService.getAll());
     }
     @GetMapping("{productId}")
     public ProductResource getProductById(@PathVariable Long productId){

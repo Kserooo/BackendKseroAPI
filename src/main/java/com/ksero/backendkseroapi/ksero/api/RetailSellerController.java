@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/retail-sellers")
 public class RetailSellerController {
@@ -21,6 +23,11 @@ public class RetailSellerController {
         this.mapper = mapper;
     }
 
+
+    @GetMapping
+    public List<RetailSellerResource> getAll(){
+        return mapper.toResource(retailSellerService.getAll());
+    }
     @GetMapping("{retailSellerId}")
     public RetailSellerResource getRetailSellerById(@PathVariable Long retailSellerId){
         return mapper.toResource(retailSellerService.getById(retailSellerId));
