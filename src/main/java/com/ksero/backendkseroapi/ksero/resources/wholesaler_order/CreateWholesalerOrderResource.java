@@ -14,7 +14,6 @@ import javax.validation.constraints.Positive;
 public class CreateWholesalerOrderResource {
 
     @NotNull
-    @NotBlank
     @Positive
     private Long quantity;
 

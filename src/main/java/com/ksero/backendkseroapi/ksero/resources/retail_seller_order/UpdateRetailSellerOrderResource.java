@@ -16,7 +16,6 @@ public class UpdateRetailSellerOrderResource {
     private Long id;
 
     @NotNull
-    @NotBlank
     @Positive
     private Long quantity;
 

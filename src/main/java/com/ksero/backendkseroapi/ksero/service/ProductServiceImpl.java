@@ -54,15 +54,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product update(Long productId, Product product) {
+    public Product update(Long productId, Product request) {
 
-        Set<ConstraintViolation<Product>> violations = validator.validate(product);
+        Set<ConstraintViolation<Product>> violations = validator.validate(request);
 
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        return productRepository.findById(productId).map(existingProduct ->
-                        productRepository.save(existingProduct.withId(product.getId())))
+        return productRepository.findById(productId).map(product ->
+                        productRepository.save(product
+                                .withName(request.getName())
+                                .withDescription(request.getDescription())
+                                .withWholesaler(request.getWholesaler())
+                                .withPrice(request.getPrice())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, productId));
 
     }

@@ -1,14 +1,20 @@
 package com.ksero.backendkseroapi.ksero.domain.model.entity;
 
 import com.ksero.backendkseroapi.shared.domain.model.AuditModel;
+import lombok.*;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@With
+@Entity
+@Table(name = "wholesaler")
 public class Wholesaler extends AuditModel {
 
     @Id
@@ -24,11 +30,9 @@ public class Wholesaler extends AuditModel {
     private String lastName;
 
     @NotNull
-    @NotBlank
     private Date birthday;
 
     @NotNull
-    @NotBlank
     private int phone;
 
     @NotNull

@@ -1,7 +1,14 @@
 package com.ksero.backendkseroapi.ksero.resources.retail_seller;
 
+import lombok.*;
+
 import java.util.Date;
 
+@Getter
+@Setter
+@With
+@NoArgsConstructor
+@AllArgsConstructor
 public class UpdateRetailSellerResource {
 
     private Long id;

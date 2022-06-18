@@ -23,7 +23,6 @@ public class WholesalerOrder extends AuditModel {
     private Long id;
 
     @NotNull
-    @NotBlank
     @Positive
     private Long quantity;
 

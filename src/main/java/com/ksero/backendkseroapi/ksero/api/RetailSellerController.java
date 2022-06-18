@@ -5,6 +5,8 @@ import com.ksero.backendkseroapi.ksero.mapping.RetailSellerMapper;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.CreateRetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.RetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.UpdateRetailSellerResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,23 +25,23 @@ public class RetailSellerController {
         this.mapper = mapper;
     }
 
-
     @GetMapping
     public List<RetailSellerResource> getAll(){
         return mapper.toResource(retailSellerService.getAll());
     }
+
     @GetMapping("{retailSellerId}")
     public RetailSellerResource getRetailSellerById(@PathVariable Long retailSellerId){
         return mapper.toResource(retailSellerService.getById(retailSellerId));
     }
 
     @PostMapping
-    public RetailSellerResource createRetailSelle(@RequestBody CreateRetailSellerResource resource){
+    public RetailSellerResource createRetailSeller(@RequestBody CreateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{retailSellerId}")
-    public RetailSellerResource updateRetailSelle(@PathVariable Long retailSellerId,
+    public RetailSellerResource updateRetailSeller(@PathVariable Long retailSellerId,
                                                @RequestBody UpdateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.update(retailSellerId, mapper.toModel(resource)));
     }

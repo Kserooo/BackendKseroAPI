@@ -55,17 +55,19 @@ public class RetailSellerOrderServiceImpl implements RetailSellerOrderService {
     }
 
     @Override
-    public RetailSellerOrder update(Long retailSellerOrderId, RetailSellerOrder retailSellerOrder) {
+    public RetailSellerOrder update(Long retailSellerOrderId, RetailSellerOrder request) {
 
-        Set<ConstraintViolation<RetailSellerOrder>> violations = validator.validate(retailSellerOrder);
+        Set<ConstraintViolation<RetailSellerOrder>> violations = validator.validate(request);
 
         if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        return retailSellerOrderRepository.findById(retailSellerOrderId).map(existingRetailSellerOrder ->
-                        retailSellerOrderRepository.save(existingRetailSellerOrder.withId(retailSellerOrder.getId())))
+        return retailSellerOrderRepository.findById(retailSellerOrderId).map(retailSellerOrder ->
+                        retailSellerOrderRepository.save(retailSellerOrder
+                                .withQuantity(request.getQuantity())
+                                .withRetailSeller(request.getRetailSeller())
+                                .withProduct(request.getProduct())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, retailSellerOrderId));
-
     }
 
     @Override
