@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductResource> getAll(){
+    public List<ProductResource> getAllProducts(){
         return mapper.toResource(productService.getAll());
     }
     @GetMapping("{productId}")
