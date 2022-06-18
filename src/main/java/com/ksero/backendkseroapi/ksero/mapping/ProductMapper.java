@@ -17,10 +17,6 @@ import java.util.List;
     @Autowired
     EnhancedModelMapper mapper;
 
-    public List<ProductResource> toResource(List<Product> model){
-        return mapper.mapList(model, ProductResource.class);
-    }
-
     public ProductResource toResource(Product model){return mapper.map(model, ProductResource.class);}
 
     public Product toModel(CreateProductResource resource){
