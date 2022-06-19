@@ -26,6 +26,12 @@ public class ProductController {
         return mapper.toResource(productService.getAll());
     }
 
+    @GetMapping("wholesalerId/{wholesalerId}")
+    public List<ProductResource> getByWholesalerId(@PathVariable Long wholesalerId){
+        return mapper.toResource(productService.getByWholesalerId(wholesalerId));
+    }
+
+
     @GetMapping("{productId}")
     public ProductResource getProductById(@PathVariable Long productId){
         return mapper.toResource(productService.getById(productId));
