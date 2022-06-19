@@ -1,15 +1,14 @@
 package com.ksero.backendkseroapi.ksero.api;
 
-import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSellerOrder;
 import com.ksero.backendkseroapi.ksero.domain.service.RetailSellerOrderService;
 import com.ksero.backendkseroapi.ksero.mapping.RetailSellerOrderMapper;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.CreateRetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.RetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.UpdateRetailSellerOrderResource;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/retail-seller-orders")
@@ -24,8 +23,8 @@ public class RetailSellerOrderController {
     }
 
     @GetMapping
-    public Page<RetailSellerOrderResource> getAllRetailSellerOrders(Pageable pageable) {
-        return mapper.modelListPage(retailSellerOrderService.getAll(), pageable);
+    public List<RetailSellerOrderResource> getAll(){
+        return mapper.toResource(retailSellerOrderService.getAll());
     }
 
     @GetMapping("{retailSellerOrderId}")

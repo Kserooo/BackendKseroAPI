@@ -5,8 +5,6 @@ import com.ksero.backendkseroapi.ksero.mapping.RetailSellerMapper;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.CreateRetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.RetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.UpdateRetailSellerResource;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;

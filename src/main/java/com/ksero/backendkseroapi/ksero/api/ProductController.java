@@ -5,8 +5,6 @@ import com.ksero.backendkseroapi.ksero.mapping.ProductMapper;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.UpdateProductResource;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
