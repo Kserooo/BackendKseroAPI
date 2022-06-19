@@ -9,6 +9,7 @@ public interface ProductService {
 
 
     List<Product> getAll();
+    List<Product> getByWholesalerId(Long wholesalerId);
 
     Product getById(Long productId);
 
