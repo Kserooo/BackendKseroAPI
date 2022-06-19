@@ -5,12 +5,12 @@ import com.ksero.backendkseroapi.ksero.mapping.WholesalerMapper;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.CreateWholesalerResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.UpdateWholesalerResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.WholesalerResource;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/wholesalers")
@@ -25,8 +25,8 @@ public class WholesalerController {
     }
 
     @GetMapping
-    public Page<WholesalerResource> getAllWholesalers(Pageable pageable) {
-        return mapper.modelListPage(wholesalerService.getAll(), pageable);
+    public List<WholesalerResource> getAll(){
+        return mapper.toResource(wholesalerService.getAll());
     }
 
     @GetMapping("{wholesalerId}")

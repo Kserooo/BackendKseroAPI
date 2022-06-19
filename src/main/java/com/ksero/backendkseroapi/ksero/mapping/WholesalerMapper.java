@@ -6,9 +6,6 @@ import com.ksero.backendkseroapi.ksero.resources.wholesaler.UpdateWholesalerReso
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.WholesalerResource;
 import com.ksero.backendkseroapi.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,9 +18,8 @@ public class WholesalerMapper implements Serializable {
         return mapper.map(model, WholesalerResource.class);
     }
 
-    public Page<WholesalerResource> modelListPage(List<Wholesaler> modelList, Pageable pageable){
-        return new PageImpl<>(mapper.mapList(modelList, WholesalerResource.class),
-                pageable, modelList.size());
+    public List<WholesalerResource> toResource(List<Wholesaler> model){
+        return mapper.mapList(model, WholesalerResource.class);
     }
 
     public Wholesaler toModel(CreateWholesalerResource resource){

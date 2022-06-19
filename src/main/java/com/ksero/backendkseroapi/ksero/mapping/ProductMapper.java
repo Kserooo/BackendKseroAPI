@@ -6,14 +6,11 @@ import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.UpdateProductResource;
 import com.ksero.backendkseroapi.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class ProductMapper {
+public class ProductMapper implements Serializable {
     @Autowired
     EnhancedModelMapper mapper;
 
