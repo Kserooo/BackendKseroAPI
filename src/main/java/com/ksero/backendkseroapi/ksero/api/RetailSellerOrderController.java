@@ -5,12 +5,14 @@ import com.ksero.backendkseroapi.ksero.mapping.RetailSellerOrderMapper;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.CreateRetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.RetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.UpdateRetailSellerOrderResource;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@SecurityRequirement(name = "acme")
 @RestController
 @RequestMapping("api/v1/retail-seller-orders")
 public class RetailSellerOrderController {

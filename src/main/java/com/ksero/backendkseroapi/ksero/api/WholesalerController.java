@@ -5,6 +5,7 @@ import com.ksero.backendkseroapi.ksero.mapping.WholesalerMapper;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.CreateWholesalerResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.UpdateWholesalerResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.WholesalerResource;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@SecurityRequirement(name = "acme")
 @RestController
 @RequestMapping("api/v1/wholesalers")
 public class WholesalerController {

@@ -5,6 +5,7 @@ import com.ksero.backendkseroapi.ksero.mapping.RetailSellerMapper;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.CreateRetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.RetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.UpdateRetailSellerResource;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@SecurityRequirement(name = "acme")
 @RestController
 @RequestMapping("api/v1/retail-sellers")
 public class RetailSellerController {

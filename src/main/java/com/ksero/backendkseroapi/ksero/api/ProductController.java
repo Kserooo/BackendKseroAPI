@@ -5,12 +5,14 @@ import com.ksero.backendkseroapi.ksero.mapping.ProductMapper;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
 import com.ksero.backendkseroapi.ksero.resources.product.UpdateProductResource;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@SecurityRequirement(name = "acme")
 @RestController
 @RequestMapping("api/v1/products")
 public class ProductController {
