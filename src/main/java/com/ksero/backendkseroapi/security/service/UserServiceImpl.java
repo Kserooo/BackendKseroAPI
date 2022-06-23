@@ -1,5 +1,20 @@
 package com.ksero.backendkseroapi.security.service;
 
+import com.ksero.backendkseroapi.security.domain.model.entity.Role;
+import com.ksero.backendkseroapi.security.domain.model.entity.User;
+import com.ksero.backendkseroapi.security.domain.model.enumeration.Roles;
+import com.ksero.backendkseroapi.security.domain.persistence.RoleRepository;
+import com.ksero.backendkseroapi.security.domain.persistence.UserRepository;
+import com.ksero.backendkseroapi.security.domain.service.UserService;
+import com.ksero.backendkseroapi.security.domain.service.communication.AuthenticateRequest;
+import com.ksero.backendkseroapi.security.domain.service.communication.AuthenticateResponse;
+import com.ksero.backendkseroapi.security.domain.service.communication.RegisterRequest;
+import com.ksero.backendkseroapi.security.domain.service.communication.RegisterResponse;
+import com.ksero.backendkseroapi.security.middleware.JwtHandler;
+import com.ksero.backendkseroapi.security.middleware.UserDetailsImpl;
+import com.ksero.backendkseroapi.security.resource.AuthenticateResource;
+import com.ksero.backendkseroapi.security.resource.UserResource;
+import com.ksero.backendkseroapi.shared.mapping.EnhancedModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +34,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(
             UserServiceImpl.class);
