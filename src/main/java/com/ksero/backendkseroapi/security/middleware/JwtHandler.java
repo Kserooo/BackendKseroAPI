@@ -34,8 +34,6 @@ public class JwtHandler {
                 .setExpiration(expiration)
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
-
-
     }
 
     public String getUsernameFrom(String token){
