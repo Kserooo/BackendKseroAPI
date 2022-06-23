@@ -4,6 +4,7 @@ import com.ksero.backendkseroapi.security.domain.model.entity.User;
 import com.ksero.backendkseroapi.security.domain.service.communication.AuthenticateRequest;
 import com.ksero.backendkseroapi.security.domain.service.communication.RegisterRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
