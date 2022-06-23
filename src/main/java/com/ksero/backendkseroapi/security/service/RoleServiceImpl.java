@@ -1,13 +1,17 @@
 package com.ksero.backendkseroapi.security.service;
 
+import com.ksero.backendkseroapi.security.domain.model.entity.Role;
+import com.ksero.backendkseroapi.security.domain.model.enumeration.Roles;
+import com.ksero.backendkseroapi.security.domain.persistence.RoleRepository;
+import com.ksero.backendkseroapi.security.domain.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
-public class RoleServiceImpl implements RoleService{
+@Service
+public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleRepository roleRepository;
     private static String[] DEFAULT_ROLES = {"ROLE_USER", "ROLE_INSTRUCTOR", "ROLE_ADMIN"};

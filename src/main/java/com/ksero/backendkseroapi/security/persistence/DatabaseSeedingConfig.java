@@ -1,5 +1,6 @@
 package com.ksero.backendkseroapi.security.persistence;
 
+import com.ksero.backendkseroapi.security.domain.service.RoleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
