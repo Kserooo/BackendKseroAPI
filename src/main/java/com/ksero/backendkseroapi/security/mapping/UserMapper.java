@@ -1,5 +1,7 @@
 package com.ksero.backendkseroapi.security.mapping;
 
+import com.ksero.backendkseroapi.security.domain.model.entity.Role;
+import com.ksero.backendkseroapi.security.domain.model.entity.User;
 import com.ksero.backendkseroapi.security.resource.UserResource;
 import com.ksero.backendkseroapi.shared.mapping.EnhancedModelMapper;
 import org.modelmapper.AbstractConverter;
@@ -10,6 +12,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserMapper extends Serializable {
 
