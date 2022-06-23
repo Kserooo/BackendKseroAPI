@@ -6,6 +6,7 @@ import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.CreateWholesal
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.UpdateWholesalerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.WholesalerOrderResource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,27 +24,32 @@ public class WholesalerOrderController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER') or hasRole('RETAIL_SELLER')")
     public List<WholesalerOrderResource> getAll(){
         return mapper.toResource(wholesalerOrderService.getAll());
     }
 
     @GetMapping("{wholesalerOrderId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public WholesalerOrderResource getWholesalerOrderById(@PathVariable Long wholesalerOrderId){
         return mapper.toResource(wholesalerOrderService.getById(wholesalerOrderId));
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public WholesalerOrderResource createWholesalerOrder(@RequestBody CreateWholesalerOrderResource resource){
         return mapper.toResource(wholesalerOrderService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{wholesalerOrderId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public WholesalerOrderResource updateWholesalerOrder(@PathVariable Long wholesalerOrderId,
                                          @RequestBody UpdateWholesalerOrderResource resource){
         return mapper.toResource(wholesalerOrderService.update(wholesalerOrderId, mapper.toModel(resource)));
     }
 
     @DeleteMapping("{wholesalerOrderId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public ResponseEntity<?> deleteWholesaler(@PathVariable Long wholesalerOrderId){
         return wholesalerOrderService.delete(wholesalerOrderId);
     }

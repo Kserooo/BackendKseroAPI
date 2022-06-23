@@ -6,6 +6,7 @@ import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.CreateRetai
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.RetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.UpdateRetailSellerOrderResource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,27 +24,32 @@ public class RetailSellerOrderController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public List<RetailSellerOrderResource> getAll(){
         return mapper.toResource(retailSellerOrderService.getAll());
     }
 
     @GetMapping("{retailSellerOrderId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public RetailSellerOrderResource getRetailSellerOrderById(@PathVariable Long retailSellerOrderId){
         return mapper.toResource(retailSellerOrderService.getById(retailSellerOrderId));
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public RetailSellerOrderResource createRetailSellerOrder(@RequestBody CreateRetailSellerOrderResource resource){
         return mapper.toResource(retailSellerOrderService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{retailSellerOrderId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public RetailSellerOrderResource updateWholesalerOrder(@PathVariable Long retailSellerOrderId,
                                                          @RequestBody UpdateRetailSellerOrderResource resource){
         return mapper.toResource(retailSellerOrderService.update(retailSellerOrderId, mapper.toModel(resource)));
     }
 
     @DeleteMapping("{retailSellerOrderId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public ResponseEntity<?> deleteRetailSeller(@PathVariable Long retailSellerOrderId){
         return retailSellerOrderService.delete(retailSellerOrderId);
     }
