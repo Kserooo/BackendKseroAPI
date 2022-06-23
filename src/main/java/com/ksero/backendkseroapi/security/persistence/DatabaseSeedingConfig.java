@@ -20,7 +20,7 @@ public class DatabaseSeedingConfig {
 
     @EventListener
     public void onApplicationReady(ApplicationReadyEvent event){
-        String name= event.getApplicationContext().getId();
+        String name = event.getApplicationContext().getId();
         logger.info("Starting Database Seeding Process for {} at {}",
                 name, new Timestamp(System.currentTimeMillis()));
         roleService.seed();
