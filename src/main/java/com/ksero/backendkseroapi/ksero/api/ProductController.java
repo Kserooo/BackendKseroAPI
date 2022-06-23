@@ -23,39 +23,39 @@ public class ProductController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER') or hasRole('WHOLESALER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public List<ProductResource> getAll(){
         return mapper.toResource(productService.getAll());
     }
 
     @GetMapping("wholesalerId/{wholesalerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public List<ProductResource> getByWholesalerId(@PathVariable Long wholesalerId){
         return mapper.toResource(productService.getByWholesalerId(wholesalerId));
     }
 
 
     @GetMapping("{productId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public ProductResource getProductById(@PathVariable Long productId){
         return mapper.toResource(productService.getById(productId));
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER') or hasRole('WHOLESALER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public ProductResource createProduct(@RequestBody CreateProductResource resource){
         return mapper.toResource(productService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{productId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER') or hasRole('WHOLESALER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public ProductResource updateProduct(@PathVariable Long productId,
                                          @RequestBody UpdateProductResource resource){
         return mapper.toResource(productService.update(productId, mapper.toModel(resource)));
     }
 
     @DeleteMapping("{productId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER') or hasRole('WHOLESALER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public ResponseEntity<?> deleteProduct(@PathVariable Long productId){
         return productService.delete(productId);
     }
