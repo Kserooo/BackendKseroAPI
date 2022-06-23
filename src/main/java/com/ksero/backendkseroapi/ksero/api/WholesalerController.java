@@ -6,6 +6,7 @@ import com.ksero.backendkseroapi.ksero.resources.wholesaler.CreateWholesalerReso
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.UpdateWholesalerResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.WholesalerResource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
@@ -25,27 +26,32 @@ public class WholesalerController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public List<WholesalerResource> getAll(){
         return mapper.toResource(wholesalerService.getAll());
     }
 
     @GetMapping("{wholesalerId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public WholesalerResource getWholesalerById(@PathVariable Long wholesalerId){
         return mapper.toResource(wholesalerService.getById(wholesalerId));
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public WholesalerResource createWholesaler(@RequestBody CreateWholesalerResource resource){
         return mapper.toResource(wholesalerService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{wholesalerId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public WholesalerResource updateWholesaler(@PathVariable Long wholesalerId,
                                          @RequestBody UpdateWholesalerResource resource){
         return mapper.toResource(wholesalerService.update(wholesalerId, mapper.toModel(resource)));
     }
 
     @DeleteMapping("{wholesalerId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> deleteWholesaler(@PathVariable Long wholesalerId){
         return wholesalerService.delete(wholesalerId);
     }
