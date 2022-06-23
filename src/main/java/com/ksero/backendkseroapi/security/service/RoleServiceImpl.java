@@ -14,7 +14,7 @@ import java.util.List;
 public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleRepository roleRepository;
-    private static String[] DEFAULT_ROLES = {"ROLE_USER", "ROLE_INSTRUCTOR", "ROLE_ADMIN"};
+    private static String[] DEFAULT_ROLES = {"ROLE_USER", "ROLE_RETAIL_SELLER", "ROLE_WHOLESALER", "ROLE_ADMIN"};
 
     @Override
     public void seed(){
