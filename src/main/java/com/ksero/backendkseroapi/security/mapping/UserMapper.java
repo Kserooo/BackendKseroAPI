@@ -14,7 +14,7 @@ import org.springframework.data.domain.Pageable;
 import java.io.Serializable;
 import java.util.List;
 
-public class UserMapper extends Serializable {
+public class UserMapper implements Serializable {
 
     @Autowired
     EnhancedModelMapper mapper;
