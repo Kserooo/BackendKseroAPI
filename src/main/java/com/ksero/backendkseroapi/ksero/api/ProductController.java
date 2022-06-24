@@ -26,7 +26,6 @@ public class ProductController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public List<ProductResource> getAll(){
         return mapper.toResource(productService.getAll());
     }
