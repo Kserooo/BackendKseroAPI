@@ -18,9 +18,9 @@ public class UpdateWholesalerResource {
 
     private String lastName;
 
-    private Date birthday;
+    private String birthday;
 
-    private int phone;
+    private String phone;
 
     private String email;
 

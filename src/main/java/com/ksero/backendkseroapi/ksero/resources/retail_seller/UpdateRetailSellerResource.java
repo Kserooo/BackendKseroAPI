@@ -2,8 +2,6 @@ package com.ksero.backendkseroapi.ksero.resources.retail_seller;
 
 import lombok.*;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @With
@@ -19,9 +17,9 @@ public class UpdateRetailSellerResource {
 
     private String lastName;
 
-    private Date birthday;
+    private String birthday;
 
-    private int phone;
+    private String phone;
 
     private String email;
 
