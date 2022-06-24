@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @SecurityRequirement(name = "acme")
+@CrossOrigin(origins = "*" , maxAge = 3600)
 @RestController
 @RequestMapping("api/v1/retail-sellers")
 public class RetailSellerController {
