@@ -43,10 +43,10 @@ public class UsersController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllUsers(Pageable pageable){
+    public Page<UserResource> getAllUsers(Pageable pageable){
         Page<UserResource> resources = mapper.modelListToPage(
                 userService.getAll(), pageable);
-        return ResponseEntity.ok(resources);
+        return resources;
 
     }
 
