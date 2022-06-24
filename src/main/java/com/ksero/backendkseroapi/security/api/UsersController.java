@@ -50,8 +50,8 @@ public class UsersController {
 
     @RequestMapping("/auth/verify-token-retail-seller")
     @PreAuthorize("hasRole('RETAIL_SELLER') or hasRole('ADMIN')")
-    public ResponseEntity<?> verifyTokenRetailSeller(){
-        return ResponseEntity.ok("ok");
+    public boolean verifyTokenRetailSeller(){
+        return true;
     }
 
     @GetMapping("/auth/verify-token-wholesaler")
