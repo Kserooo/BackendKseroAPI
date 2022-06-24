@@ -14,6 +14,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @SecurityRequirement(name = "acme")
 @Tag(name="Users", description = "Create, read, update and delete users")
@@ -43,11 +44,8 @@ public class UsersController {
     }
 
     @GetMapping("/auth/get-all")
-    public Page<UserResource> getAllUsers(Pageable pageable){
-        Page<UserResource> resources = mapper.modelListToPage(
-                userService.getAll(), pageable);
-        return resources;
-
+    public List<UserResource> getAllUsers(){
+        return mapper.toResource(userService.getAll());
     }
 
 }

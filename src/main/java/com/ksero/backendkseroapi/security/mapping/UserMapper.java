@@ -1,5 +1,7 @@
 package com.ksero.backendkseroapi.security.mapping;
 
+import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
+import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
 import com.ksero.backendkseroapi.security.domain.model.entity.Role;
 import com.ksero.backendkseroapi.security.domain.model.entity.User;
 import com.ksero.backendkseroapi.security.resource.UserResource;
@@ -33,10 +35,8 @@ public class UserMapper implements Serializable {
         return mapper.map(model, UserResource.class);
     }
 
-    public Page<UserResource> modelListToPage(List<User> modelList,
-                                              Pageable pageable){
-        mapper.addConverter(roleToString);
-        return  new PageImpl<>(mapper.mapList(modelList, UserResource.class),
-                pageable, modelList.size());
+    public List<UserResource> toResource(List<User> model){
+        return mapper.mapList(model, UserResource.class);
     }
+
 }

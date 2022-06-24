@@ -51,7 +51,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     EnhancedModelMapper mapper;
 
-
     @Override
     public ResponseEntity<?> authenticate(AuthenticateRequest request){
         try{
