@@ -28,32 +28,32 @@ public class RetailSellerController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public List<RetailSellerResource> getAll(){
         return mapper.toResource(retailSellerService.getAll());
     }
 
     @GetMapping("{retailSellerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public RetailSellerResource getRetailSellerById(@PathVariable Long retailSellerId){
         return mapper.toResource(retailSellerService.getById(retailSellerId));
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public RetailSellerResource createRetailSeller(@RequestBody CreateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{retailSellerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public RetailSellerResource updateRetailSeller(@PathVariable Long retailSellerId,
                                                @RequestBody UpdateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.update(retailSellerId, mapper.toModel(resource)));
     }
 
     @DeleteMapping("{retailSellerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public ResponseEntity<?> deleteRetailSeller(@PathVariable Long retailSellerId){
         return retailSellerService.delete(retailSellerId);
     }

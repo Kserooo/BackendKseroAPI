@@ -29,32 +29,32 @@ public class WholesalerController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public List<WholesalerResource> getAll(){
         return mapper.toResource(wholesalerService.getAll());
     }
 
     @GetMapping("{wholesalerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public WholesalerResource getWholesalerById(@PathVariable Long wholesalerId){
         return mapper.toResource(wholesalerService.getById(wholesalerId));
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public WholesalerResource createWholesaler(@RequestBody CreateWholesalerResource resource){
         return mapper.toResource(wholesalerService.create(mapper.toModel(resource)));
     }
 
     @PutMapping("{wholesalerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public WholesalerResource updateWholesaler(@PathVariable Long wholesalerId,
                                          @RequestBody UpdateWholesalerResource resource){
         return mapper.toResource(wholesalerService.update(wholesalerId, mapper.toModel(resource)));
     }
 
     @DeleteMapping("{wholesalerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public ResponseEntity<?> deleteWholesaler(@PathVariable Long wholesalerId){
         return wholesalerService.delete(wholesalerId);
     }
