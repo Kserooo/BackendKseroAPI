@@ -13,8 +13,8 @@ public class WholesalerResource {
     private Long id;
     private String firstName;
     private String lastName;
-    private Date birthday;
-    private int phone;
+    private String birthday;
+    private String phone;
     private String email;
     private String address;
     private String username;

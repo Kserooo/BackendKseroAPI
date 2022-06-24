@@ -2,11 +2,6 @@ package com.ksero.backendkseroapi.ksero.resources.retail_seller;
 
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.Date;
-
 @Getter
 @Setter
 @With
@@ -20,9 +15,9 @@ public class CreateRetailSellerResource {
 
     private String lastName;
 
-    private Date birthday;
+    private String birthday;
 
-    private int phone;
+    private String phone;
 
     private String email;
 

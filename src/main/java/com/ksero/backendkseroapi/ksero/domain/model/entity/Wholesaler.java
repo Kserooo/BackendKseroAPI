@@ -6,7 +6,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -30,10 +29,12 @@ public class Wholesaler extends AuditModel {
     private String lastName;
 
     @NotNull
-    private Date birthday;
+    @NotBlank
+    private String birthday;
 
     @NotNull
-    private int phone;
+    @NotBlank
+    private String phone;
 
     @NotNull
     @NotBlank
