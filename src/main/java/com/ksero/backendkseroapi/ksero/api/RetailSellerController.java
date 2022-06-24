@@ -32,7 +32,7 @@ public class RetailSellerController {
         return mapper.toResource(retailSellerService.getAll());
     }
 
-    @GetMapping("{retailSellerId}")
+    @GetMapping("retailSellerId/{retailSellerId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public RetailSellerResource getRetailSellerById(@PathVariable Long retailSellerId){
         return mapper.toResource(retailSellerService.getById(retailSellerId));
