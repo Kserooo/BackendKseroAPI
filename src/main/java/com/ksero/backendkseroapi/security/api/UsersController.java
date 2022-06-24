@@ -42,11 +42,11 @@ public class UsersController {
         return userService.register(request);
     }
 
-    @GetMapping
-    public ResponseEntity<?> getAllUsers(@Valid @RequestBody Pageable pageable){
+    @GetMapping("/auth/get-all")
+    public Page<UserResource> getAllUsers(Pageable pageable){
         Page<UserResource> resources = mapper.modelListToPage(
                 userService.getAll(), pageable);
-        return ResponseEntity.ok(resources);
+        return resources;
 
     }
 
