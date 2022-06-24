@@ -43,7 +43,7 @@ public class UsersController {
     }
 
     @GetMapping
-    public Page<UserResource> getAllUsers(Pageable pageable){
+    public Page<UserResource> getAllUsers(@Valid @RequestBody Pageable pageable){
         Page<UserResource> resources = mapper.modelListToPage(
                 userService.getAll(), pageable);
         return resources;
