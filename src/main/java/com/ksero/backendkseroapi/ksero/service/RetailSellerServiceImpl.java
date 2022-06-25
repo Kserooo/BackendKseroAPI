@@ -7,7 +7,6 @@ import com.ksero.backendkseroapi.ksero.domain.service.RetailSellerService;
 import com.ksero.backendkseroapi.shared.exception.ResourceNotFoundException;
 import com.ksero.backendkseroapi.shared.exception.ResourceValidationException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,6 @@ import javax.validation.Validator;
 public class RetailSellerServiceImpl implements RetailSellerService {
 
     private static final String ENTITY = "RetailSeller";
-    @Autowired
     RetailSellerRepository retailSellerRepository;
     private final Validator validator;
     public RetailSellerServiceImpl(RetailSellerRepository retailSellerRepository, Validator validator) {
