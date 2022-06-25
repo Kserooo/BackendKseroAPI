@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @SecurityRequirement(name = "acme")
@@ -41,7 +42,7 @@ public class RetailSellerController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
-    public RetailSellerResource createRetailSeller(@RequestBody CreateRetailSellerResource resource){
+    public RetailSellerResource createRetailSeller(@Valid @RequestBody CreateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.create(mapper.toModel(resource)));
     }
 
