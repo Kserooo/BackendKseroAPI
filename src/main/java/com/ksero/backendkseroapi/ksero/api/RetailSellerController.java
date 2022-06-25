@@ -39,7 +39,7 @@ public class RetailSellerController {
         return mapper.toResource(retailSellerService.getById(retailSellerId));
     }
 
-    @PostMapping("/create")
+    @PostMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public RetailSellerResource createRetailSeller(@RequestBody CreateRetailSellerResource resource){
         return mapper.toResource(retailSellerService.create(mapper.toModel(resource)));
