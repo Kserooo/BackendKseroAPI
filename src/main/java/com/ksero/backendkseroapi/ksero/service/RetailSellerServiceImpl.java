@@ -38,10 +38,7 @@ public class RetailSellerServiceImpl implements RetailSellerService {
 
     @Override
     public RetailSeller create(RetailSeller request) {
-        Set<ConstraintViolation<RetailSeller>> violations = validator.validate(request);
 
-        if (!violations.isEmpty())
-            throw new ResourceValidationException(ENTITY, violations);
 
         RetailSeller retailSeller = new RetailSeller().withUsername(request.getUsername())
                 .withBirthday(request.getBirthday())
