@@ -3,18 +3,16 @@ package com.ksero.backendkseroapi.ksero.service;
 
 import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSellerOrder;
 import com.ksero.backendkseroapi.ksero.domain.persistence.RetailSellerOrderRepository;
+import com.ksero.backendkseroapi.ksero.domain.persistence.RetailSellerRepository;
 import com.ksero.backendkseroapi.ksero.domain.service.RetailSellerOrderService;
 import com.ksero.backendkseroapi.shared.exception.ResourceNotFoundException;
 import com.ksero.backendkseroapi.shared.exception.ResourceValidationException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -23,12 +21,13 @@ public class RetailSellerOrderServiceImpl implements RetailSellerOrderService {
 
     private final RetailSellerOrderRepository retailSellerOrderRepository;
 
+    private final RetailSellerRepository retailSellerRepository;
+
     private final Validator validator;
 
-    public RetailSellerOrderServiceImpl(RetailSellerOrderRepository retailSellerOrderRepository, Validator validator) {
-
+    public RetailSellerOrderServiceImpl(RetailSellerRepository retailSellerRepository, RetailSellerOrderRepository retailSellerOrderRepository, Validator validator) {
+        this.retailSellerRepository = retailSellerRepository;
         this.retailSellerOrderRepository = retailSellerOrderRepository;
-
         this.validator = validator;
     }
 
