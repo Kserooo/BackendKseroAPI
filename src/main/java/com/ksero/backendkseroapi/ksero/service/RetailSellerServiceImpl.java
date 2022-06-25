@@ -40,17 +40,9 @@ public class RetailSellerServiceImpl implements RetailSellerService {
     public RetailSeller create(RetailSeller request) {
 
 
-        RetailSeller retailSeller = new RetailSeller().withUsername(request.getUsername())
-                .withBirthday(request.getBirthday())
-                .withAddress(request.getAddress())
-                .withDescription(request.getDescription())
-                .withEmail(request.getEmail())
-                .withFirstName(request.getFirstName())
-                .withLastName(request.getLastName())
-                .withPassword(request.getPassword())
-                .withPhone(request.getPhone());
 
-        return retailSellerRepository.save(retailSeller);
+
+        return retailSellerRepository.save(request);
     }
 
     @Override
