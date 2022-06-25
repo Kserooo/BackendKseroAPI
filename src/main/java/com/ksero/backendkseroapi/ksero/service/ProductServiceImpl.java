@@ -71,7 +71,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product update(Long productId, Product request) {
 
+        Set<ConstraintViolation<Product>> violations = validator.validate(request);
 
+        if(!violations.isEmpty())
+            throw new ResourceValidationException(ENTITY, violations);
 
         return productRepository.findById(productId).map(product ->
                         productRepository.save(product
