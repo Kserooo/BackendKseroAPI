@@ -37,11 +37,21 @@ public class RetailSellerServiceImpl implements RetailSellerService {
     }
 
     @Override
-    public RetailSeller create(RetailSeller retailSeller) {
-        Set<ConstraintViolation<RetailSeller>> violations = validator.validate(retailSeller);
+    public RetailSeller create(RetailSeller request) {
+        Set<ConstraintViolation<RetailSeller>> violations = validator.validate(request);
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
+
+        RetailSeller retailSeller = new RetailSeller().withUsername(request.getUsername())
+                .withBirthday(request.getBirthday())
+                .withAddress(request.getAddress())
+                .withDescription(request.getDescription())
+                .withEmail(request.getEmail())
+                .withFirstName(request.getFirstName())
+                .withLastName(request.getLastName())
+                .withPassword(request.getPassword())
+                .withPhone(request.getPhone());
 
         return retailSellerRepository.save(retailSeller);
     }
