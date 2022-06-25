@@ -19,7 +19,7 @@ import javax.validation.Validator;
 public class RetailSellerServiceImpl implements RetailSellerService {
 
     private static final String ENTITY = "RetailSeller";
-    RetailSellerRepository retailSellerRepository;
+    private final RetailSellerRepository retailSellerRepository;
     private final Validator validator;
     public RetailSellerServiceImpl(RetailSellerRepository retailSellerRepository, Validator validator) {
         this.retailSellerRepository = retailSellerRepository;
