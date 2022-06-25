@@ -43,8 +43,17 @@ public class RetailSellerServiceImpl implements RetailSellerService {
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
+        RetailSeller retailSeller = new RetailSeller().withUsername(request.getUsername())
+                .withBirthday(request.getBirthday())
+                .withAddress(request.getAddress())
+                .withDescription(request.getDescription())
+                .withEmail(request.getEmail())
+                .withFirstName(request.getFirstName())
+                .withLastName(request.getLastName())
+                .withPassword(request.getPassword())
+                .withPhone(request.getPhone());
 
-        return retailSellerRepository.save(request);
+        return retailSellerRepository.save(retailSeller);
     }
 
     @Override
