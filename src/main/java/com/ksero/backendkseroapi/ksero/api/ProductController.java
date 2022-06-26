@@ -39,7 +39,7 @@ public class ProductController {
 
 
     @GetMapping("{productId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public ProductResource getProductById(@PathVariable Long productId){
         return mapper.toResource(productService.getById(productId));
     }
