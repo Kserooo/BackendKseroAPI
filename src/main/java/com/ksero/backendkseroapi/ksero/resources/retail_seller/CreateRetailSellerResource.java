@@ -41,5 +41,16 @@ public class CreateRetailSellerResource {
 
     @NotNull
     private String description;
-
+    @NotNull
+    private String paymentName;
+    @NotNull
+    private String paymentPhone;
+    @NotNull
+    private String paymentEmail;
+    @NotNull
+    private String paymentCardNumber;
+    @NotNull
+    private String paymentExpirationDate;
+    @NotNull
+    private String paymentCVV;
 }
