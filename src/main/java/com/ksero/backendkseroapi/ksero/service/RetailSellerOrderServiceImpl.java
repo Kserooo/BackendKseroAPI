@@ -2,7 +2,6 @@ package com.ksero.backendkseroapi.ksero.service;
 
 import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSeller;
 import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSellerOrder;
-import com.ksero.backendkseroapi.ksero.domain.model.entity.Wholesaler;
 import com.ksero.backendkseroapi.ksero.domain.persistence.RetailSellerOrderRepository;
 import com.ksero.backendkseroapi.ksero.domain.persistence.RetailSellerRepository;
 import com.ksero.backendkseroapi.ksero.domain.service.RetailSellerOrderService;

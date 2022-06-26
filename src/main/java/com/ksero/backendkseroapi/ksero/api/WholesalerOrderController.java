@@ -2,6 +2,7 @@ package com.ksero.backendkseroapi.ksero.api;
 
 import com.ksero.backendkseroapi.ksero.domain.service.WholesalerOrderService;
 import com.ksero.backendkseroapi.ksero.mapping.WholesalerOrderMapper;
+import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.RetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.CreateWholesalerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.UpdateWholesalerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.WholesalerOrderResource;
@@ -36,6 +37,12 @@ public class WholesalerOrderController {
     @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public WholesalerOrderResource getWholesalerOrderById(@PathVariable Long wholesalerOrderId){
         return mapper.toResource(wholesalerOrderService.getById(wholesalerOrderId));
+    }
+
+    @GetMapping("wholesalerId/{retailSellerId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
+    public List<WholesalerOrderResource> getByRetailSellerId(@PathVariable Long retailSellerId){
+        return mapper.toResource(wholesalerOrderService.getByRetailSellerId(retailSellerId));
     }
 
     @PostMapping

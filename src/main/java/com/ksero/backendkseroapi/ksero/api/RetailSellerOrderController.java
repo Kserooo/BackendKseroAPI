@@ -31,17 +31,18 @@ public class RetailSellerOrderController {
         return mapper.toResource(retailSellerOrderService.getAll());
     }
 
-    @GetMapping("retailSellerId/{retailSellerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
-    public List<RetailSellerOrderResource> getByRetailSellerId(@PathVariable Long retailSellerId){
-        return mapper.toResource(retailSellerOrderService.getByRetailSellerId(retailSellerId));
-    }
+
     @GetMapping("{retailSellerOrderId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public RetailSellerOrderResource getRetailSellerOrderById(@PathVariable Long retailSellerOrderId){
         return mapper.toResource(retailSellerOrderService.getById(retailSellerOrderId));
     }
 
+    @GetMapping("retailSellerId/{retailSellerId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
+    public List<RetailSellerOrderResource> getByRetailSellerId(@PathVariable Long retailSellerId){
+        return mapper.toResource(retailSellerOrderService.getByRetailSellerId(retailSellerId));
+    }
     @PostMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public RetailSellerOrderResource createRetailSellerOrder(@RequestBody CreateRetailSellerOrderResource resource){
