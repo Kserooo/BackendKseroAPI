@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface RetailSellerOrderService {
     List<RetailSellerOrder> getAll();
+    List<RetailSellerOrder> getByRetailSellerId(Long retailSellerId);
 
     RetailSellerOrder getById(Long retailSellerOrderId);
 
