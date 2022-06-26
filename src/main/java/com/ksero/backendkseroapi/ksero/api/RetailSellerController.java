@@ -37,6 +37,12 @@ public class RetailSellerController {
         return mapper.toResource(retailSellerService.getById(retailSellerId));
     }
 
+    @GetMapping("retailSellerUsername/{retailSellerUsername}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
+    public RetailSellerResource getByRetailSellerUsername(@PathVariable String retailSellerUsername){
+        return mapper.toResource(retailSellerService.getByRetailSellerUsername(retailSellerUsername));
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public RetailSellerResource createRetailSeller(@RequestBody CreateRetailSellerResource resource){

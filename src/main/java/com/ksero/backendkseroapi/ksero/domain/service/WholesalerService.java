@@ -1,6 +1,5 @@
 package com.ksero.backendkseroapi.ksero.domain.service;
 
-import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
 import com.ksero.backendkseroapi.ksero.domain.model.entity.Wholesaler;
 import org.springframework.http.ResponseEntity;
 

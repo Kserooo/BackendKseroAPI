@@ -34,6 +34,11 @@ public class RetailSellerServiceImpl implements RetailSellerService {
     }
 
     @Override
+    public RetailSeller getByRetailSellerUsername(String retailSellerUsername){
+        return retailSellerRepository.findByUsername(retailSellerUsername);
+    }
+
+    @Override
     public RetailSeller create(RetailSeller retailSeller) {
         Set<ConstraintViolation<RetailSeller>> violations = validator.validate(retailSeller);
 
