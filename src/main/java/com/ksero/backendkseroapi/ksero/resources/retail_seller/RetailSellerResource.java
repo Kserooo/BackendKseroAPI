@@ -20,10 +20,4 @@ public class RetailSellerResource {
     private String username;
     private String password;
     private String description;
-    private String paymentName;
-    private String paymentPhone;
-    private String paymentEmail;
-    private String paymentCardNumber;
-    private String paymentExpirationDate;
-    private String paymentCVV;
 }

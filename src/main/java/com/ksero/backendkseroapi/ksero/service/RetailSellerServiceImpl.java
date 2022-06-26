@@ -66,13 +66,7 @@ public class RetailSellerServiceImpl implements RetailSellerService {
                                 .withEmail(request.getEmail())
                                 .withUsername(request.getUsername())
                                 .withPassword(request.getPassword())
-                                .withDescription(request.getDescription())
-                                .withPaymentName(request.getPaymentName())
-                                .withPaymentPhone(request.getPaymentPhone())
-                                .withPaymentEmail(request.getPaymentEmail())
-                                .withPaymentCardNumber(request.getPaymentCardNumber())
-                                .withPaymentExpirationDate(request.getPaymentExpirationDate())
-                                .withPaymentCVV(request.getPaymentCVV()))
+                                .withDescription(request.getDescription()))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
     }
 
