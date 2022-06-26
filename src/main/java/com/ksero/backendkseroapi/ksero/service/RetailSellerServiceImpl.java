@@ -58,7 +58,7 @@ public class RetailSellerServiceImpl implements RetailSellerService {
 
         return retailSellerRepository.findById(retailSellerId).map(retailSeller ->
                         retailSellerRepository.save(retailSeller
-                                        .withFirstName(request.getFirstName()))
+                                .withFirstName(request.getFirstName())
                                 .withAddress(request.getAddress())
                                 .withLastName(request.getLastName())
                                 .withBirthday(request.getBirthday())
@@ -72,8 +72,7 @@ public class RetailSellerServiceImpl implements RetailSellerService {
                                 .withPaymentEmail(request.getPaymentEmail())
                                 .withPaymentCardNumber(request.getPaymentCardNumber())
                                 .withPaymentExpirationDate(request.getPaymentExpirationDate())
-                                .withPaymentCVV(request.getPaymentCVV())
-                )
+                                .withPaymentCVV(request.getPaymentCVV())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, retailSellerId));
     }
 

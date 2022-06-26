@@ -56,7 +56,7 @@ public class WholesalerServiceImpl implements WholesalerService {
 
         return wholesalerRepository.findById(wholesalerId).map(wholesaler ->
                         wholesalerRepository.save(wholesaler
-                                        .withFirstName(request.getFirstName()))
+                                .withFirstName(request.getFirstName())
                                 .withAddress(request.getAddress())
                                 .withLastName(request.getLastName())
                                 .withBirthday(request.getBirthday())
@@ -64,7 +64,7 @@ public class WholesalerServiceImpl implements WholesalerService {
                                 .withEmail(request.getEmail())
                                 .withUsername(request.getUsername())
                                 .withPassword(request.getPassword())
-                                .withDescription(request.getDescription()))
+                                .withDescription(request.getDescription())))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, wholesalerId));
     }
 
