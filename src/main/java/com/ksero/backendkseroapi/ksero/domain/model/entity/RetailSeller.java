@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @With
 @Entity
-@Table(name = "retailSeller")
+@Table(name = "retail_seller")
 public class RetailSeller extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

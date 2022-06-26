@@ -1,6 +1,5 @@
 package com.ksero.backendkseroapi.ksero.service;
 
-
 import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSellerOrder;
 import com.ksero.backendkseroapi.ksero.domain.persistence.RetailSellerOrderRepository;
 import com.ksero.backendkseroapi.ksero.domain.persistence.RetailSellerRepository;
@@ -18,15 +17,9 @@ import java.util.Set;
 @Service
 public class RetailSellerOrderServiceImpl implements RetailSellerOrderService {
     private static final String ENTITY = "RetailSellerOrder";
-
     private final RetailSellerOrderRepository retailSellerOrderRepository;
-
-    private final RetailSellerRepository retailSellerRepository;
-
     private final Validator validator;
-
-    public RetailSellerOrderServiceImpl(RetailSellerRepository retailSellerRepository, RetailSellerOrderRepository retailSellerOrderRepository, Validator validator) {
-        this.retailSellerRepository = retailSellerRepository;
+    public RetailSellerOrderServiceImpl(RetailSellerOrderRepository retailSellerOrderRepository, Validator validator) {
         this.retailSellerOrderRepository = retailSellerOrderRepository;
         this.validator = validator;
     }

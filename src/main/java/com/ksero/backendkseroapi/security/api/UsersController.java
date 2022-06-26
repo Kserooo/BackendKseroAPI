@@ -48,7 +48,7 @@ public class UsersController {
         return mapper.toResource(userService.getAll());
     }
 
-    @RequestMapping("/auth/verify-token-retail-seller")
+    @GetMapping("/auth/verify-token-retail-seller")
     @PreAuthorize("hasRole('RETAIL_SELLER')")
     public boolean verifyTokenRetailSeller(){
         return true;

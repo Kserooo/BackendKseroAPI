@@ -1,8 +1,6 @@
 package com.ksero.backendkseroapi.ksero.mapping;
 
-import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
 import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSeller;
-import com.ksero.backendkseroapi.ksero.resources.product.ProductResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.CreateRetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.RetailSellerResource;
 import com.ksero.backendkseroapi.ksero.resources.retail_seller.UpdateRetailSellerResource;

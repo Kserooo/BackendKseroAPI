@@ -3,10 +3,8 @@ package com.ksero.backendkseroapi.ksero.service;
 import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSeller;
 import com.ksero.backendkseroapi.ksero.domain.persistence.RetailSellerRepository;
 import com.ksero.backendkseroapi.ksero.domain.service.RetailSellerService;
-
 import com.ksero.backendkseroapi.shared.exception.ResourceNotFoundException;
 import com.ksero.backendkseroapi.shared.exception.ResourceValidationException;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +15,6 @@ import javax.validation.Validator;
 
 @Service
 public class RetailSellerServiceImpl implements RetailSellerService {
-
     private static final String ENTITY = "RetailSeller";
     private final RetailSellerRepository retailSellerRepository;
     private final Validator validator;
@@ -40,7 +37,7 @@ public class RetailSellerServiceImpl implements RetailSellerService {
     public RetailSeller create(RetailSeller retailSeller) {
         Set<ConstraintViolation<RetailSeller>> violations = validator.validate(retailSeller);
 
-        if (!violations.isEmpty())
+        if(!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
         return retailSellerRepository.save(retailSeller);
@@ -70,8 +67,8 @@ public class RetailSellerServiceImpl implements RetailSellerService {
 
     @Override
     public ResponseEntity<?> delete(Long retailSellerId) {
-        return retailSellerRepository.findById(retailSellerId).map(skill -> {
-            retailSellerRepository.delete(skill);
+        return retailSellerRepository.findById(retailSellerId).map(retailSeller -> {
+            retailSellerRepository.delete(retailSeller);
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, retailSellerId));
     }
