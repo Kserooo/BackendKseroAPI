@@ -67,8 +67,8 @@ public class RetailSellerServiceImpl implements RetailSellerService {
 
     @Override
     public ResponseEntity<?> delete(Long retailSellerId) {
-        return retailSellerRepository.findById(retailSellerId).map(skill -> {
-            retailSellerRepository.delete(skill);
+        return retailSellerRepository.findById(retailSellerId).map(retailSeller -> {
+            retailSellerRepository.delete(retailSeller);
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, retailSellerId));
     }
