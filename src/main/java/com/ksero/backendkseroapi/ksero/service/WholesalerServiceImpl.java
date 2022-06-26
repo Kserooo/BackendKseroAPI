@@ -48,13 +48,13 @@ public class WholesalerServiceImpl implements WholesalerService {
     }
 
     @Override
-    public Wholesaler update(Long id, Wholesaler request) {
+    public Wholesaler update(Long wholesalerId, Wholesaler request) {
         Set<ConstraintViolation<Wholesaler>> violations = validator.validate(request);
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        return wholesalerRepository.findById(id).map(wholesaler ->
+        return wholesalerRepository.findById(wholesalerId).map(wholesaler ->
                         wholesalerRepository.save(wholesaler
                                         .withFirstName(request.getFirstName()))
                                 .withAddress(request.getAddress())
@@ -65,7 +65,7 @@ public class WholesalerServiceImpl implements WholesalerService {
                                 .withUsername(request.getUsername())
                                 .withPassword(request.getPassword())
                                 .withDescription(request.getDescription()))
-                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
+                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, wholesalerId));
     }
 
     @Override

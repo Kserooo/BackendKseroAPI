@@ -49,14 +49,14 @@ public class RetailSellerServiceImpl implements RetailSellerService {
     }
 
     @Override
-    public RetailSeller update(Long id, RetailSeller request) {
+    public RetailSeller update(Long retailSellerId, RetailSeller request) {
         Set<ConstraintViolation<RetailSeller>> violations = validator.validate(request);
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
 
-        return retailSellerRepository.findById(id).map(retailSeller ->
+        return retailSellerRepository.findById(retailSellerId).map(retailSeller ->
                         retailSellerRepository.save(retailSeller
                                         .withFirstName(request.getFirstName()))
                                 .withAddress(request.getAddress())
@@ -74,7 +74,7 @@ public class RetailSellerServiceImpl implements RetailSellerService {
                                 .withPaymentExpirationDate(request.getPaymentExpirationDate())
                                 .withPaymentCVV(request.getPaymentCVV())
                 )
-                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, id));
+                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, retailSellerId));
     }
 
     @Override
