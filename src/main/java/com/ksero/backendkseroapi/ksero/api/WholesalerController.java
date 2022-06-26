@@ -33,7 +33,7 @@ public class WholesalerController {
     }
 
     @GetMapping("{wholesalerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER') or hasRole('RETAIL_SELLER')")
     public WholesalerResource getWholesalerById(@PathVariable Long wholesalerId){
         return mapper.toResource(wholesalerService.getById(wholesalerId));
     }
