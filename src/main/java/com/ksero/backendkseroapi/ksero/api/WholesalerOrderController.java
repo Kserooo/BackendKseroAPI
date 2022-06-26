@@ -39,7 +39,7 @@ public class WholesalerOrderController {
         return mapper.toResource(wholesalerOrderService.getById(wholesalerOrderId));
     }
 
-    @GetMapping("wholesalerId/{retailSellerId}")
+    @GetMapping("retailSellerId/{retailSellerId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER')")
     public List<WholesalerOrderResource> getByRetailSellerId(@PathVariable Long retailSellerId){
         return mapper.toResource(wholesalerOrderService.getByRetailSellerId(retailSellerId));
