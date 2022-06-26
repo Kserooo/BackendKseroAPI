@@ -61,5 +61,4 @@ public class RetailSeller extends AuditModel {
     private String paymentExpirationDate;
     @NotNull
     private String paymentCVV;
-
 }
