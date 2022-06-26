@@ -13,15 +13,19 @@ import javax.validation.constraints.NotNull;
 public class CreateRetailSellerResource {
 
     @NotNull
+    @NotBlank
     private String firstName;
 
     @NotNull
+    @NotBlank
     private String lastName;
 
     @NotNull
+    @NotBlank
     private String birthday;
 
     @NotNull
+    @NotBlank
     private String phone;
 
     @NotNull
@@ -29,6 +33,7 @@ public class CreateRetailSellerResource {
     private String email;
 
     @NotNull
+    @NotBlank
     private String address;
 
     @NotNull
@@ -40,5 +45,6 @@ public class CreateRetailSellerResource {
     private String password;
 
     @NotNull
+    @NotBlank
     private String description;
 }
