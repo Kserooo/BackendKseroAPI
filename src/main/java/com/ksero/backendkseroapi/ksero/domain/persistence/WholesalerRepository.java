@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WholesalerRepository extends JpaRepository<Wholesaler,Long> {
+    Wholesaler findByUsername(String username);
 }

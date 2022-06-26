@@ -34,6 +34,10 @@ public class WholesalerServiceImpl implements WholesalerService {
     }
 
     @Override
+    public Wholesaler getByWholesalerUsername(String wholesalerName){
+        return wholesalerRepository.findByUsername(wholesalerName);
+    }
+    @Override
     public Wholesaler create(Wholesaler wholesaler) {
         Set<ConstraintViolation<Wholesaler>> violations = validator.validate(wholesaler);
 

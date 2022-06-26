@@ -38,6 +38,12 @@ public class WholesalerController {
         return mapper.toResource(wholesalerService.getById(wholesalerId));
     }
 
+    @GetMapping("wholesalerUsername/{wholesalerUsername}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
+    public WholesalerResource getByWholesalerUsername(@PathVariable String wholesalerUsername){
+        return mapper.toResource(wholesalerService.getByWholesalerUsername(wholesalerUsername));
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public WholesalerResource createWholesaler(@RequestBody CreateWholesalerResource resource){
