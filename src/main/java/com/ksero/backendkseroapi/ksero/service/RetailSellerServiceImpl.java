@@ -43,7 +43,7 @@ public class RetailSellerServiceImpl implements RetailSellerService {
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
-        return retailSellerRepository.save(retailSeller);
+        return retailSellerRepository.save(request);
     }
 
     @Override
