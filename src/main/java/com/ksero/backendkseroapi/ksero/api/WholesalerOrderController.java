@@ -53,7 +53,7 @@ public class WholesalerOrderController {
 
     @DeleteMapping("{wholesalerOrderId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
-    public ResponseEntity<?> deleteWholesaler(@PathVariable Long wholesalerOrderId){
+    public ResponseEntity<?> deleteWholesalerOrder(@PathVariable Long wholesalerOrderId){
         return wholesalerOrderService.delete(wholesalerOrderId);
     }
 

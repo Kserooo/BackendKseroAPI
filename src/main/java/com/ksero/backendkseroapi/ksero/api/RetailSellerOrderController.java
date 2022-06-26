@@ -17,7 +17,6 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/retail-seller-orders")
 public class RetailSellerOrderController {
-
     private final RetailSellerOrderService retailSellerOrderService;
     private final RetailSellerOrderMapper mapper;
 
@@ -53,7 +52,7 @@ public class RetailSellerOrderController {
 
     @DeleteMapping("{retailSellerOrderId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
-    public ResponseEntity<?> deleteRetailSeller(@PathVariable Long retailSellerOrderId){
+    public ResponseEntity<?> deleteRetailSellerOrder(@PathVariable Long retailSellerOrderId){
         return retailSellerOrderService.delete(retailSellerOrderId);
     }
 }

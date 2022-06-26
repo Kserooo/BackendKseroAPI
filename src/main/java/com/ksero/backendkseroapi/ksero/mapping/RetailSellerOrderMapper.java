@@ -11,7 +11,6 @@ import java.io.Serializable;
 import java.util.List;
 
 public class RetailSellerOrderMapper implements Serializable {
-
     @Autowired
     EnhancedModelMapper mapper;
 
