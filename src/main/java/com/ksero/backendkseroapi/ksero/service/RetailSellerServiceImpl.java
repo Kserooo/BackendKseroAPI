@@ -42,8 +42,13 @@ public class RetailSellerServiceImpl implements RetailSellerService {
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
+        try{
+            return retailSellerRepository.save(request);
+        }
+        catch (Exception e){
+            throw new ResourceValidationException(ENTITY, "An error occurred while saving client");
+        }
 
-        return retailSellerRepository.save(request);
     }
 
     @Override
