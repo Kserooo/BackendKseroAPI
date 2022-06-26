@@ -20,19 +20,15 @@ public class RetailSeller extends AuditModel {
     private Long id;
 
     @NotNull
-    @NotBlank
     private String firstName;
 
     @NotNull
-    @NotBlank
     private String lastName;
 
     @NotNull
-    @NotBlank
     private String birthday;
 
     @NotNull
-    @NotBlank
     private String phone;
 
     @NotNull
@@ -40,7 +36,6 @@ public class RetailSeller extends AuditModel {
     private String email;
 
     @NotNull
-    @NotBlank
     private String address;
 
     @NotNull
@@ -52,7 +47,6 @@ public class RetailSeller extends AuditModel {
     private String password;
 
     @NotNull
-    @NotBlank
     private String description;
 
 }
