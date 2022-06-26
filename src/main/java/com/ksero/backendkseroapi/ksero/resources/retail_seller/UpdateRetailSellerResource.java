@@ -2,7 +2,6 @@ package com.ksero.backendkseroapi.ksero.resources.retail_seller;
 
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
