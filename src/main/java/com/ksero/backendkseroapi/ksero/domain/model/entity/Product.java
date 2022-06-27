@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "product")
 public class Product extends AuditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
