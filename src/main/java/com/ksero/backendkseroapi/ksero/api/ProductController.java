@@ -30,6 +30,7 @@ public class ProductController {
     public List<ProductResource> getAll(){
         return mapper.toResource(productService.getAll());
     }
+    
     @GetMapping("wholesalerId/{wholesalerId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public List<ProductResource> getByWholesalerId(@PathVariable Long wholesalerId){
