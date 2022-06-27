@@ -14,10 +14,8 @@ import javax.validation.constraints.Size;
 public class CreateProductResource {
     @NotBlank
     @NotNull
-    @Size(max = 100)
     private String name;
 
-    @Size(max = 240)
     private String description;
     private Long wholesalerId;
 
