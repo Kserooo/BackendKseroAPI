@@ -15,6 +15,7 @@ public class CreateProductResource {
     @NotBlank
     @NotNull
     private String name;
+    
     @NotNull
     @NotBlank
     private String description;
