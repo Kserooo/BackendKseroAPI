@@ -15,9 +15,6 @@ public class UpdateWholesalerOrderResource {
 
     private Long id;
 
-    @NotNull
-    @NotBlank
-    @Positive
     private Long quantity;
 
     private Long retailSellerId;
