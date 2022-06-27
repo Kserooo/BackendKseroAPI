@@ -19,7 +19,6 @@ public class CreateProductResource {
 
     @Size(max = 240)
     private String description;
-
     private Long wholesalerId;
 
     @NotNull
