@@ -24,7 +24,6 @@ public class RetailSeller extends AuditModel {
 
     @NotNull
     private String lastName;
-
     @NotNull
     private String birthday;
 
