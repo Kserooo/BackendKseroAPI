@@ -45,7 +45,6 @@ public class RetailSeller extends AuditModel {
     @NotNull
     @NotBlank
     private String password;
-
     @NotNull
     private String description;
 
