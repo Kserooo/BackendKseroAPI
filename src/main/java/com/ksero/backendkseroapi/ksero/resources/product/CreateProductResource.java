@@ -19,8 +19,8 @@ public class CreateProductResource {
     @NotNull
     @NotBlank
     private String description;
-    private Double wholesalerId;
+    private Long wholesalerId;
 
     @NotNull
-    private Number price;
+    private Double price;
 }
