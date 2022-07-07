@@ -12,5 +12,5 @@ public class UpdateProductResource {
     private String name;
     private String description;
     private Long wholesalerId;
-    private Number price;
+    private Double price;
 }
