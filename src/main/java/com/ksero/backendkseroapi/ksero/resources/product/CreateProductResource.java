@@ -1,5 +1,6 @@
 package com.ksero.backendkseroapi.ksero.resources.product;
 
+import com.ksero.backendkseroapi.ksero.domain.model.entity.Wholesaler;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
@@ -19,7 +20,7 @@ public class CreateProductResource {
     @NotNull
     @NotBlank
     private String description;
-    private Long wholesalerId;
+    private Wholesaler wholesaler;
 
     @NotNull
     private Double price;

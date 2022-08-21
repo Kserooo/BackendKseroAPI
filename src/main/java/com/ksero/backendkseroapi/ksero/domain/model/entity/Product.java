@@ -1,6 +1,7 @@
 package com.ksero.backendkseroapi.ksero.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ksero.backendkseroapi.shared.domain.model.AuditModel;
 import lombok.*;
 
@@ -14,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @With
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +29,9 @@ public class Product extends AuditModel {
     @NotBlank
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wholesaler_id", nullable = false)
-    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "wholesaler_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Wholesaler wholesaler;
 
     @NotNull

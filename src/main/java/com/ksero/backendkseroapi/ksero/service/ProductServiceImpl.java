@@ -59,10 +59,17 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product create(Product product) {
-        Set<ConstraintViolation<Product>> violations = validator.validate(product);
+        Optional<Wholesaler> wholesalerOptional = wholesalerRepository.findById(product.getWholesaler().getId());
+
+        if(!wholesalerOptional.isPresent()){
+            throw new ResourceNotFoundException(ENTITY2, product.getWholesaler().getId());
+        }
+
+        product.setWholesaler(wholesalerOptional.get());
+        /*Set<ConstraintViolation<Product>> violations = validator.validate(product);
 
         if(!violations.isEmpty())
-            throw new ResourceValidationException(ENTITY, violations);
+            throw new ResourceValidationException(ENTITY, violations);*/
 
 
         return productRepository.save(product);
