@@ -29,7 +29,7 @@ public class Product extends AuditModel {
     @NotBlank
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "wholesaler_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Wholesaler wholesaler;

@@ -12,6 +12,6 @@ public class ProductResource {
     private Long id;
     private String name;
     private String description;
-    private Wholesaler wholesalerId;
+    private Wholesaler wholesaler;
     private Double price;
 }
