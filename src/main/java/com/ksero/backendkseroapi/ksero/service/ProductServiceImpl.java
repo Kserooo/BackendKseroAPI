@@ -8,6 +8,8 @@ import com.ksero.backendkseroapi.ksero.domain.persistence.ProductRepository;
 import com.ksero.backendkseroapi.ksero.domain.persistence.WholesalerOrderRepository;
 import com.ksero.backendkseroapi.ksero.domain.persistence.WholesalerRepository;
 import com.ksero.backendkseroapi.ksero.domain.service.ProductService;
+import com.ksero.backendkseroapi.ksero.mapping.ProductMapper;
+import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.shared.exception.ResourceNotFoundException;
 import com.ksero.backendkseroapi.shared.exception.ResourceValidationException;
 import org.springframework.http.ResponseEntity;
@@ -27,12 +29,15 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final WholesalerRepository wholesalerRepository;
 
+    private final ProductMapper productMapper;
+
     private final Validator validator;
 
-    public ProductServiceImpl(ProductRepository productRepository, WholesalerRepository wholesalerRepository, Validator validator) {
+    public ProductServiceImpl(ProductRepository productRepository, WholesalerRepository wholesalerRepository, ProductMapper productMapper, Validator validator) {
 
         this.productRepository = productRepository;
         this.wholesalerRepository = wholesalerRepository;
+        this.productMapper = productMapper;
 
         this.validator = validator;
     }
@@ -58,21 +63,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product create(Product product) {
-        Optional<Wholesaler> wholesalerOptional = wholesalerRepository.findById(product.getWholesaler().getId());
+    public Product create(CreateProductResource product) {
+        //Optional<Wholesaler> wholesalerOptional = wholesalerRepository.findById(product.getWholesaler().getId());
+
+        Optional<Wholesaler> wholesalerOptional = wholesalerRepository.findById(product.getWholesalerId());
 
         if(!wholesalerOptional.isPresent()){
-            throw new ResourceNotFoundException(ENTITY2, product.getWholesaler().getId());
+            throw new ResourceNotFoundException(ENTITY2, product.getWholesalerId());
         }
 
-        product.setWholesaler(wholesalerOptional.get());
-        /*Set<ConstraintViolation<Product>> violations = validator.validate(product);
+        Product new_product = productMapper.toModel(product);
 
-        if(!violations.isEmpty())
-            throw new ResourceValidationException(ENTITY, violations);*/
+        new_product.setWholesaler(wholesalerOptional.get()); //set manual de wholesaler id
 
-
-        return productRepository.save(product);
+        return productRepository.save(new_product);
     }
 
     @Override

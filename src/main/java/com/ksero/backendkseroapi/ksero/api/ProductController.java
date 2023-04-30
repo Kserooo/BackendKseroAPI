@@ -46,7 +46,7 @@ public class ProductController {
     @PostMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public ProductResource createProduct(@RequestBody CreateProductResource resource){
-        return mapper.toResource(productService.create(mapper.toModel(resource)));
+        return mapper.toResource(productService.create(resource));
     }
 
     @PutMapping("{productId}")

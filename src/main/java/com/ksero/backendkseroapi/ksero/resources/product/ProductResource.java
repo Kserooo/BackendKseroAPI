@@ -10,8 +10,14 @@ import lombok.*;
 @AllArgsConstructor
 public class ProductResource {
     private Long id;
+
     private String name;
+
     private String description;
-    private Wholesaler wholesaler;
+
+    private Long wholesalerId;
+
+    //private Wholesaler wholesaler;
+
     private Double price;
 }
