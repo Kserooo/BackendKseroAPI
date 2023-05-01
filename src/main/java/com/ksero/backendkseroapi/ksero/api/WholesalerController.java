@@ -1,5 +1,6 @@
 package com.ksero.backendkseroapi.ksero.api;
 
+import com.ksero.backendkseroapi.ksero.domain.model.entity.Wholesaler;
 import com.ksero.backendkseroapi.ksero.domain.service.WholesalerService;
 import com.ksero.backendkseroapi.ksero.mapping.WholesalerMapper;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler.CreateWholesalerResource;
@@ -41,7 +42,9 @@ public class WholesalerController {
     @GetMapping("wholesalerUsername/{wholesalerUsername}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public WholesalerResource getByWholesalerUsername(@PathVariable String wholesalerUsername){
-        return mapper.toResource(wholesalerService.getByWholesalerUsername(wholesalerUsername));
+        Wholesaler wholesaler = wholesalerService.getByWholesalerUsername(wholesalerUsername);
+        int a = 5;
+        return mapper.toResource(wholesaler);
     }
 
     @PostMapping

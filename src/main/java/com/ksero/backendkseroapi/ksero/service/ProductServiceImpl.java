@@ -12,8 +12,11 @@ import com.ksero.backendkseroapi.ksero.mapping.ProductMapper;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.shared.exception.ResourceNotFoundException;
 import com.ksero.backendkseroapi.shared.exception.ResourceValidationException;
+
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException.NotFound;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
@@ -82,11 +85,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product update(Long productId, Product request) {
 
-        Set<ConstraintViolation<Product>> violations = validator.validate(request);
-
-        if(!violations.isEmpty())
-            throw new ResourceValidationException(ENTITY, violations);
-
         return productRepository.findById(productId).map(product ->
                         productRepository.save(product
                                 .withName(request.getName())
@@ -103,5 +101,14 @@ public class ProductServiceImpl implements ProductService {
             productRepository.delete(product);
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, productId));
+    }
+
+    @Override
+    public void updateProductWithWholeSalerId(Long wholeSalerId, Product product) throws ResourceNotFoundException {
+        Optional<Wholesaler> existingWholesaler = this.wholesalerRepository.findById(wholeSalerId);
+        if(existingWholesaler.isEmpty()) {
+            throw new ResourceNotFoundException("Wholesaler", wholeSalerId);
+        }
+        product.setWholesaler(existingWholesaler.get());
     }
 }

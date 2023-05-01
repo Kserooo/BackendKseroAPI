@@ -1,6 +1,5 @@
 package com.ksero.backendkseroapi.ksero.domain.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ksero.backendkseroapi.shared.domain.model.AuditModel;
 import lombok.*;
