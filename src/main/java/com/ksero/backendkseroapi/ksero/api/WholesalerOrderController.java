@@ -6,6 +6,7 @@ import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.CreateWholesal
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.UpdateWholesalerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.WholesalerOrderResource;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @SecurityRequirement(name = "acme")
-@CrossOrigin(origins = "*" , maxAge = 3600)
 @RestController
 @RequestMapping("api/v1/wholesaler-orders")
+@CrossOrigin(origins = "*", allowedHeaders = "Requestor-Type")
 public class WholesalerOrderController {
 
     private final WholesalerOrderService wholesalerOrderService;
@@ -25,11 +26,11 @@ public class WholesalerOrderController {
         this.wholesalerOrderService = wholesalerOrderService;
         this.mapper = mapper;
     }
-
     @GetMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER') or hasRole('RETAIL_SELLER')")
-    public List<WholesalerOrderResource> getAll(){
-        return mapper.toResource(wholesalerOrderService.getAll());
+    public ResponseEntity<List<WholesalerOrderResource>> getAll(){
+        List<WholesalerOrderResource> resources = mapper.toResource(wholesalerOrderService.getAll());
+        return ResponseEntity.ok().body(resources);
     }
 
     @GetMapping("{wholesalerOrderId}")

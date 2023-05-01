@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.security.domain.service.communication.AuthenticateRequest;
 import com.ksero.backendkseroapi.security.domain.service.communication.RegisterRequest;
-import com.ksero.backendkseroapi.security.domain.service.communication.RegisterResponse;
 import com.ksero.backendkseroapi.security.resource.AuthenticateResource;
 
 import io.cucumber.java.en.Given;

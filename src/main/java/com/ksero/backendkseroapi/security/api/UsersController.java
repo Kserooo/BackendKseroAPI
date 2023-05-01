@@ -49,13 +49,11 @@ public class UsersController {
     }
 
     @GetMapping("/auth/verify-token-retail-seller")
-    @PreAuthorize("hasRole('RETAIL_SELLER')")
     public boolean verifyTokenRetailSeller(){
         return true;
     }
 
     @GetMapping("/auth/verify-token-wholesaler")
-    @PreAuthorize("hasRole('WHOLESALER')")
     public boolean verifyTokenWholesaler(){
         return true;
     }
