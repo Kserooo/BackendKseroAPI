@@ -2,6 +2,8 @@ package com.ksero.backendkseroapi.ksero.domain.service;
 
 import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
+import com.ksero.backendkseroapi.shared.exception.ResourceNotFoundException;
+
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -20,5 +22,7 @@ public interface ProductService {
     Product update(Long id, Product product);
 
     ResponseEntity<?> delete(Long productId);
+
+    void updateProductWithWholeSalerId(Long wholeSalerId, Product product) throws ResourceNotFoundException;
 
 }

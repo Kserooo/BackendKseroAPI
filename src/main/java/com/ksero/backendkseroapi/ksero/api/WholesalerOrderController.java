@@ -2,7 +2,6 @@ package com.ksero.backendkseroapi.ksero.api;
 
 import com.ksero.backendkseroapi.ksero.domain.service.WholesalerOrderService;
 import com.ksero.backendkseroapi.ksero.mapping.WholesalerOrderMapper;
-import com.ksero.backendkseroapi.ksero.resources.retail_seller_order.RetailSellerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.CreateWholesalerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.UpdateWholesalerOrderResource;
 import com.ksero.backendkseroapi.ksero.resources.wholesaler_order.WholesalerOrderResource;

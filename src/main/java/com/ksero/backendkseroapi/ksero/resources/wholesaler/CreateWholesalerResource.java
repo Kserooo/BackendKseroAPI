@@ -2,8 +2,6 @@ package com.ksero.backendkseroapi.ksero.resources.wholesaler;
 
 import lombok.*;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @With
