@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@SecurityRequirement(name = "acme")
 @CrossOrigin(origins = "*" , maxAge = 3600)
 @RestController
 @RequestMapping("api/v1/wholesalers")
@@ -34,16 +33,13 @@ public class WholesalerController {
     }
 
     @GetMapping("{wholesalerId}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER') or hasRole('RETAIL_SELLER')")
     public WholesalerResource getWholesalerById(@PathVariable Long wholesalerId){
         return mapper.toResource(wholesalerService.getById(wholesalerId));
     }
 
     @GetMapping("wholesalerUsername/{wholesalerUsername}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('RETAIL_SELLER') or hasRole('WHOLESALER')")
     public WholesalerResource getByWholesalerUsername(@PathVariable String wholesalerUsername){
         Wholesaler wholesaler = wholesalerService.getByWholesalerUsername(wholesalerUsername);
-        int a = 5;
         return mapper.toResource(wholesaler);
     }
 
