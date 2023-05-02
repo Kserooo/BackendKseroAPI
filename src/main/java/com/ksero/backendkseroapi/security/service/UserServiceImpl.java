@@ -10,7 +10,6 @@ import com.ksero.backendkseroapi.security.domain.service.communication.Authentic
 import com.ksero.backendkseroapi.security.domain.service.communication.AuthenticateResponse;
 import com.ksero.backendkseroapi.security.domain.service.communication.RegisterRequest;
 import com.ksero.backendkseroapi.security.domain.service.communication.RegisterResponse;
-import com.ksero.backendkseroapi.security.middleware.JwtHandler;
 import com.ksero.backendkseroapi.security.middleware.UserDetailsImpl;
 import com.ksero.backendkseroapi.security.resource.AuthenticateResource;
 import com.ksero.backendkseroapi.security.resource.UserResource;
@@ -45,8 +44,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     AuthenticationManager authenticationManager;
     @Autowired
-    JwtHandler handler;
-    @Autowired
     PasswordEncoder encoder;
     @Autowired
     EnhancedModelMapper mapper;
@@ -58,7 +55,6 @@ public class UserServiceImpl implements UserService {
                     new UsernamePasswordAuthenticationToken(request.getUsername(),
                             request.getPassword()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            String token = handler.generateToken(authentication);
             UserDetailsImpl userDetails = (UserDetailsImpl)  authentication.getPrincipal();
             List<String> roles = userDetails.getAuthorities().stream()
                     .map(GrantedAuthority::getAuthority)
@@ -66,7 +62,6 @@ public class UserServiceImpl implements UserService {
 
             AuthenticateResource resource = mapper.map(userDetails, AuthenticateResource.class);
             resource.setRoles(roles);
-            resource.setToken(token);
 
             AuthenticateResponse response = new AuthenticateResponse(resource);
             return ResponseEntity.ok(response.getResource());

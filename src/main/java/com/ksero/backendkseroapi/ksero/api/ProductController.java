@@ -1,5 +1,6 @@
 package com.ksero.backendkseroapi.ksero.api;
 
+import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
 import com.ksero.backendkseroapi.ksero.domain.service.ProductService;
 import com.ksero.backendkseroapi.ksero.mapping.ProductMapper;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
@@ -8,9 +9,12 @@ import com.ksero.backendkseroapi.ksero.resources.product.UpdateProductResource;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import javax.validation.Valid;
 
 @SecurityRequirement(name = "acme")
 @CrossOrigin(origins = "*" , maxAge = 3600)
@@ -52,8 +56,17 @@ public class ProductController {
     @PutMapping("{productId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('WHOLESALER')")
     public ProductResource updateProduct(@PathVariable Long productId,
-                                         @RequestBody UpdateProductResource resource){
-        return mapper.toResource(productService.update(productId, mapper.toModel(resource)));
+                                         @RequestBody @Valid UpdateProductResource resource, BindingResult validation){
+        if(validation.hasErrors()) {
+            return null;
+        }
+        Product product = mapper.toModel(resource);
+        try {
+            productService.updateProductWithWholeSalerId(resource.getWholesalerId(), product);
+        } catch (Exception e) {
+            return null;
+        }
+        return mapper.toResource(productService.update(productId, product));
     }
 
     @DeleteMapping("{productId}")
