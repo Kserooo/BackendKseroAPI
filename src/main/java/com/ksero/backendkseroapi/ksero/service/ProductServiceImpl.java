@@ -73,7 +73,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
         Product new_product = productMapper.toModel(product);
-
+        new_product.setId(null);
         new_product.setWholesaler(wholesalerOptional.get()); //set manual de wholesaler id
 
         return productRepository.save(new_product);
