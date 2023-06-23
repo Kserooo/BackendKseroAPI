@@ -15,6 +15,8 @@ public class ProductResource {
 
     private String description;
 
+    private String image;
+
     private Long wholesalerId;
 
     //private Wholesaler wholesaler;

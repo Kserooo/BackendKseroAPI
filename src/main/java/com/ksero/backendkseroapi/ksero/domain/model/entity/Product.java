@@ -28,6 +28,9 @@ public class Product extends AuditModel {
     @NotBlank
     private String description;
 
+    @Column(name = "image", columnDefinition = "longtext")
+    private String image;
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "wholesaler_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

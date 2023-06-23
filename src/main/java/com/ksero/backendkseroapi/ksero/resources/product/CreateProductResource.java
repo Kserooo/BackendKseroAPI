@@ -18,6 +18,10 @@ public class CreateProductResource {
     @NotBlank
     private String description;
 
+    @NotNull
+    @NotBlank
+    private String image;
+
     private Long wholesalerId;
 
     //private Wholesaler wholesaler;

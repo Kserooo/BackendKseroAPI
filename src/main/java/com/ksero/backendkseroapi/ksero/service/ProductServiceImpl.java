@@ -1,28 +1,18 @@
 package com.ksero.backendkseroapi.ksero.service;
 
 import com.ksero.backendkseroapi.ksero.domain.model.entity.Product;
-import com.ksero.backendkseroapi.ksero.domain.model.entity.RetailSellerOrder;
 import com.ksero.backendkseroapi.ksero.domain.model.entity.Wholesaler;
-import com.ksero.backendkseroapi.ksero.domain.model.entity.WholesalerOrder;
 import com.ksero.backendkseroapi.ksero.domain.persistence.ProductRepository;
-import com.ksero.backendkseroapi.ksero.domain.persistence.WholesalerOrderRepository;
 import com.ksero.backendkseroapi.ksero.domain.persistence.WholesalerRepository;
 import com.ksero.backendkseroapi.ksero.domain.service.ProductService;
 import com.ksero.backendkseroapi.ksero.mapping.ProductMapper;
 import com.ksero.backendkseroapi.ksero.resources.product.CreateProductResource;
 import com.ksero.backendkseroapi.shared.exception.ResourceNotFoundException;
-import com.ksero.backendkseroapi.shared.exception.ResourceValidationException;
-
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException.NotFound;
-
-import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class ProductServiceImpl implements ProductService {

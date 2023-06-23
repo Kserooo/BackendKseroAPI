@@ -18,6 +18,9 @@ public class UpdateProductResource {
     @NotNull
     private String description;
     @NotNull
+    private String image;
+
+    @NotNull
     private Long wholesalerId;
     @NotNull
     private Double price;
