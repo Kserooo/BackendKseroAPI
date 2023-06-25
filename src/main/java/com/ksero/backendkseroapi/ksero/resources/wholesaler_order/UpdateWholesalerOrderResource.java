@@ -15,5 +15,22 @@ public class UpdateWholesalerOrderResource {
 
     private Long retailSellerId;
     private Long productId;
+    private String operationCode;
 
+    private boolean isPaid;
+
+    public UpdateWholesalerOrderResource(
+        Long id,
+        Long quantity,
+        Long retailSellerId,
+        Long productId
+    ) {
+        this.id = id;
+        this.quantity = quantity;
+        this.retailSellerId = retailSellerId;
+        this.productId = productId;
+        this.operationCode = null;
+        this.isPaid = false;
+    }
+    
 }

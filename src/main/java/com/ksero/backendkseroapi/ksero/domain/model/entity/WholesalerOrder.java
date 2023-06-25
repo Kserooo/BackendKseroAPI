@@ -37,4 +37,8 @@ public class WholesalerOrder extends AuditModel {
     @JsonIgnore
     private Product product;
 
+    private String operationCode = null;
+
+    private boolean isPaid = false;
+
 }

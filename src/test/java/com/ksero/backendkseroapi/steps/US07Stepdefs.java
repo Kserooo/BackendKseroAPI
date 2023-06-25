@@ -36,6 +36,7 @@ public class US07Stepdefs {
             "miguel",
             "miguel@hotmail.com",
             "12345",
+            "123456789",
             Set.of("ROLE_WHOLESALER")
         );
         this.testRestTemplate.postForEntity("http://localhost:8090/api/v1/users/auth/sign-up", registerRequest, String.class);
@@ -59,6 +60,7 @@ public class US07Stepdefs {
         productRequest = new CreateProductResource(
             "vegatables",
             "1kg of different vegetables",
+            "photo.png",
             Long.valueOf((long)1),
             Double.valueOf(22.50)
         );
@@ -80,6 +82,7 @@ public class US07Stepdefs {
         this.productRequest = new CreateProductResource(
             "vegatables",
             "1kg of different vegetables",
+            "photo.png",
             Long.valueOf((long)1),
             null
         );

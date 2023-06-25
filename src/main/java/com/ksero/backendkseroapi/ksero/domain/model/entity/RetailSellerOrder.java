@@ -32,4 +32,10 @@ public class RetailSellerOrder extends AuditModel {
     @JoinColumn(name = "product_id", nullable = false)
     @JsonIgnore
     private Product product;
+
+    @Column
+    private String operationCode = null;
+
+    @Column
+    private boolean isPaid = false;
 }

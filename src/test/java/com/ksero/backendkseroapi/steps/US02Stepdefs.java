@@ -29,6 +29,7 @@ public class US02Stepdefs {
             "miguel",
             "miguel@hotmail.com",
             "12345",
+            "123456789",
             Set.of("ROLE_WHOLESALER")
         );
         this.testRestTemplate.postForEntity("http://localhost:8090/api/v1/users/auth/sign-up", registerRequest.toString(), String.class);

@@ -26,5 +26,7 @@ public class RegisterRequest {
     @NotBlank
     private String password;
 
+    private String creditCardNumber;
+
     private Set<String> roles;
 }

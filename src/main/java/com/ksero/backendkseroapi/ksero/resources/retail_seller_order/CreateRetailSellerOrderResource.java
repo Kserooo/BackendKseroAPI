@@ -18,5 +18,7 @@ public class CreateRetailSellerOrderResource {
 
     private Long retailSellerId;
     private Long productId;
+    private String operationCode = null;
+    private boolean isPaid = false;
 
 }

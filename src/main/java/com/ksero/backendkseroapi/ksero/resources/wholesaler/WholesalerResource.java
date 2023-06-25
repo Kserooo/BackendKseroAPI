@@ -18,4 +18,5 @@ public class WholesalerResource {
     private String username;
     private String password;
     private String description;
+    private String creditCardNumber;
 }
