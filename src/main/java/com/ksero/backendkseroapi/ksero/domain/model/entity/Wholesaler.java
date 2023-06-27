@@ -51,9 +51,7 @@ public class Wholesaler extends AuditModel {
 
     @NotNull
     private String description;
-
-    @NotNull
-    @NotBlank
+    
     @Column
     private String creditCardNumber;
 
