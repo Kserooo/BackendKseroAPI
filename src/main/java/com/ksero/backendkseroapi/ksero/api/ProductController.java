@@ -63,10 +63,10 @@ public class ProductController {
         Product product = mapper.toModel(resource);
         try {
             productService.updateProductWithWholeSalerId(resource.getWholesalerId(), product);
+            return mapper.toResource(productService.update(productId, product));
         } catch (Exception e) {
             return null;
         }
-        return mapper.toResource(productService.update(productId, product));
     }
 
     @DeleteMapping("{productId}")

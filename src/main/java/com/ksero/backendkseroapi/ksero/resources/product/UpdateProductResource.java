@@ -17,6 +17,7 @@ public class UpdateProductResource {
     private String name;
     @NotNull
     private String description;
+    @NotNull
     private String image;
     @NotNull
     private Long wholesalerId;
