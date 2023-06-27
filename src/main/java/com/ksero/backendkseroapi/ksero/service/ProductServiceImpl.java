@@ -80,7 +80,8 @@ public class ProductServiceImpl implements ProductService {
                                 .withName(request.getName())
                                 .withDescription(request.getDescription())
                                 .withWholesaler(request.getWholesaler())
-                                .withPrice(request.getPrice())))
+                                .withPrice(request.getPrice()))
+                                .withImage(request.getImage()))
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, productId));
 
     }
